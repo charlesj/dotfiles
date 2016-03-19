@@ -1,0 +1,16 @@
+---
+- name: Is Chrome Installed
+  stat: path=/usr/bin/google-chrome
+  register: chrome_present
+- name: create install dir
+  file: path=/tmp/install_chrome state=directory
+  when: not chrome_present.stat.exists
+- name: download chrome
+  command:  "wget -O /tmp/install_chrome/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+  when: not chrome_present.stat.exists
+- name: install chrome
+  command: deb -i /tmp/install_chrome/chrome.deb
+  become: true
+  when: not chrome_present.stat.exists
+- name: clean up
+  file: path=/tmp/install_chrome state=absent  
