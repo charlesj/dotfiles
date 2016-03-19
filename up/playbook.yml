@@ -4,6 +4,7 @@
     - packages
     - fun
     - shell
+    - developer
   tasks:
   - name: Install httpie
     become: true
