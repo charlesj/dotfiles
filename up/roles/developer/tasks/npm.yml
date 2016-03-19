@@ -1,6 +1,4 @@
-  - name: Install NPM
-    become: true
-    apt: name=npm state=present
-
-  - name: Install global packages
-    npm: name=electron-prebuilt state=present global=yes
+---
+- name: Install NPM
+  become: true
+  apt: name=npm state=present
