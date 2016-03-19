@@ -1,7 +1,7 @@
   - name: Install Terminator
     become: true
     apt: name=terminator state=present
-    
+
   - name: Install ZSH
     become: true
     apt: name=zsh state=present
@@ -15,11 +15,9 @@
     ignore_errors: yes
     when: not oh_my_zsh_installed.stat.exists
 
-#  - name: Tell bashrc to start zsh
-#    lineinfile:
-#      dest: ~/.profile
-#      line: zsh; exit
-#      insertafter: EOF
+  - name: Change shell to zsh
+    user: name=josh shell=/usr/bin/zsh
+    become: true
 
   - name: Clone syntax highlighter plugin
     git:
