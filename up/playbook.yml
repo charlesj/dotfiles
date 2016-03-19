@@ -1,0 +1,54 @@
+---
+- hosts: all
+  tasks:
+  - name: Install Cowsay
+    become: true
+    apt: name=cowsay state=present
+
+  - name: Install httpie
+    become: true
+    apt: name=httpie state=present
+
+  - name: Activate Random Cowsay
+    lineinfile:
+      dest: ~/.profile
+      line: export ANSIBLE_COW_SELECTION=random
+
+  - name: Install ZSH
+    become: true
+    apt: name=zsh state=present
+
+  - name: See if oh-my-zsh is installed
+    stat: path=~/.oh-my-zsh
+    register: oh_my_zsh_installed
+
+  - name: Install Oh-my-zsh
+    shell: wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+    ignore_errors: yes
+    when: not oh_my_zsh_installed.stat.exists
+
+    # We don't use chsh here because we want to maintain compatibility with the
+    # bashrc file as it changes.
+  - name: Tell bashrc to start zsh
+    lineinfile:
+      dest: ~/.profile
+      line: zsh; exit
+      insertafter: EOF
+
+  - name: Clone syntax highlighter plugin
+    git:
+      repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+      clone: yes
+      dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+  - name: Set oh-my-zsh theme
+    lineinfile:
+      dest: ~/.zshrc
+      regexp: ^ZSH_THEME=
+      line: ZSH_THEME="robbyrussell"
+
+  - name: Set oh-my-zsh plugins
+    lineinfile:
+      dest: ~/.zshrc
+      regexp: ^plugins=
+      line: plugins=(git docker wd command-not-found zsh-syntax-highlighting httpie sudo)
