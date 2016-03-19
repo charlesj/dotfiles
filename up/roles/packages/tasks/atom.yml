@@ -13,3 +13,13 @@
   when: not atom_present.stat.exists
 - name: clean up atom
   file: path=/tmp/atom.deb state=absent
+- name: Install atom packages
+  shell: "apm install {{ item }}"
+  with_items:
+    - minimap
+    - file-icons
+    - git-diff
+    - pretty-json
+    - seti-ui
+    - seti-icons
+    - advanced-new-file
