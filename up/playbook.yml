@@ -6,7 +6,3 @@
     - packages
     - security
     - shell
-  tasks:
-  - name: Install httpie
-    become: true
-    apt: name=httpie state=present

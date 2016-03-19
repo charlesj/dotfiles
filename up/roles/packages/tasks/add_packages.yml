@@ -1,0 +1,8 @@
+---
+- name: Install apt-get packages
+  become: true
+  apt: name={{ item }} state=present
+  with_items:
+    - httpie
+    - vim
+    - openvpn
