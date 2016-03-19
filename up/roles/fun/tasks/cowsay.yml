@@ -1,0 +1,8 @@
+- name: Install Cowsay
+  become: true
+  apt: name=cowsay state=present
+
+- name: Activate Random Cowsay
+  lineinfile:
+    dest: ~/.profile
+    line: export ANSIBLE_COW_SELECTION=random
