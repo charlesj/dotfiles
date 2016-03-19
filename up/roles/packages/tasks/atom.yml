@@ -1,0 +1,15 @@
+---
+- name: Is Atom Installed
+  stat: path=/usr/bin/atom
+  register: atom_present
+- name: Download Atom
+  get_url:
+    url: https://atom.io/download/deb
+    dest: /tmp/atom.deb
+  when: not atom_present.stat.exists
+- name: Install Atom
+  command: dpkg -i /tmp/atom.deb
+  become: true
+  when: not atom_present.stat.exists
+- name: clean up atom
+  file: path=/tmp/atom.deb state=absent
