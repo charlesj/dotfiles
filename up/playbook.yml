@@ -1,10 +1,11 @@
 ---
 - hosts: all
   roles:
-    - packages
     - fun
-    - shell
     - developer
+    - packages
+    - security
+    - shell
   tasks:
   - name: Install httpie
     become: true
