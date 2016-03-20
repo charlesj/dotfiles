@@ -19,17 +19,61 @@
     user: name=josh shell=/usr/bin/zsh
     become: true
 
+  - name: Install Powerline fonts
+    include: powerline_fonts.yml
+
   - name: Clone syntax highlighter plugin
     git:
       repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
       clone: yes
       dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
+  - name: Clone powerlevel9k theme
+    git:
+      repo: https://github.com/bhilburn/powerlevel9k.git
+      clone: yes
+      dest: ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+  - name: Ensure Terminator setup for 256 color
+    lineinfile:
+      dest: ~/.zshrc
+      line: export TERM=xterm-256color
+      insertbefore: BOF
+      state: present
+
   - name: Set oh-my-zsh theme
     lineinfile:
       dest: ~/.zshrc
       regexp: ^ZSH_THEME=
-      line: ZSH_THEME="robbyrussell"
+      line: ZSH_THEME="powerlevel9k/powerlevel9k"
+
+  - name: Set powerlevel9k option for left prompt
+    lineinfile:
+      dest: ~/.zshrc
+      regexp: ^POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=
+      line: POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir vcs status)
+      insertafter: ^ZSH_THEME=
+
+  - name: Set powerlevel9k option for right prompt
+    lineinfile:
+      dest: ~/.zshrc
+      regexp: ^POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=
+      line: POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+      insertafter: ^ZSH_THEME=
+
+  - name: Set powerlevel9k status option
+    lineinfile:
+      dest: ~/.zshrc
+      regexp: ^POWERLEVEL9K_STATUS_VERBOSE=
+      line: POWERLEVEL9K_STATUS_VERBOSE=false
+      insertafter: ^ZSH_THEME=
+
+  - name: Set powerlevel9k dir length
+    lineinfile:
+      dest: ~/.zshrc
+      regexp: ^POWERLEVEL9K_SHORTEN_DIR_LENGTH=
+      line: POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+      insertafter: ^ZSH_THEME=
 
   - name: Set oh-my-zsh plugins
     lineinfile:

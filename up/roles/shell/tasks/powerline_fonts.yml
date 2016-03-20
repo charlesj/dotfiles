@@ -1,0 +1,14 @@
+---
+- name: Install PowerlineSymbols
+  get_url:
+    url: https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+    dest: /usr/share/fonts/PowerlineSymbols.otf
+  become: true
+- name: Update fontconfig cache
+  shell: fc-cache -vf
+  become: true
+- name: Install 10-powerline-symbols
+  get_url:
+    url: https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+    dest: /etc/fonts/conf.d/10-powerline-symbols.conf
+  become: true
