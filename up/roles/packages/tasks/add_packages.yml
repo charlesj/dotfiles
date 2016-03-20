@@ -6,3 +6,9 @@
     - httpie
     - vim
     - openvpn
+    - python-pip
+- name: Install pip packages
+  become: true
+  pip: name={{ item }} state=present
+  with_items:
+    - youtube-dl
