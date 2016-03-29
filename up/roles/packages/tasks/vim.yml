@@ -1,0 +1,9 @@
+---
+- name: Copy vimrc file
+  template:
+    src: ../templates/my.vimrc
+    dest: ~/.vimrc
+- name: Install Powerline
+  pip:
+    name: powerline-status
+    state: present

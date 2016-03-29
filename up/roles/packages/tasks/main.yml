@@ -3,3 +3,4 @@
 - include: atom.yml
 - include: add_packages.yml
 - include: clean_packages.yml
+- include: vim.yml
