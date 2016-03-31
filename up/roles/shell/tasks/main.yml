@@ -1,11 +1,3 @@
-  - name: Install Terminator
-    become: true
-    apt: name=terminator state=present
-
-  - name: Install ZSH
-    become: true
-    apt: name=zsh state=present
-
   - name: See if oh-my-zsh is installed
     stat: path=~/.oh-my-zsh
     register: oh_my_zsh_installed

@@ -1,6 +1,7 @@
 ---
+- include: add_packages.yml
 - include: google_chrome.yml
 - include: atom.yml
-- include: add_packages.yml
 - include: clean_packages.yml
 - include: vim.yml
+- include: terminator.yml

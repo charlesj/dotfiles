@@ -8,6 +8,8 @@
     - openvpn
     - python-pip
     - ntp
+    - terminator
+    - zsh
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present

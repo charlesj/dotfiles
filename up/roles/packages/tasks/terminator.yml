@@ -1,0 +1,5 @@
+---
+- name: Copy Terminator Config
+  template:
+    src: ../templates/my.terminator.config
+    dest: ~/.config/terminator/config
