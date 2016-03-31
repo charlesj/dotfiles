@@ -1,18 +1,22 @@
 ---
-- name: Is Atom Installed
+- name: Check if Atom is installed
   stat: path=/usr/bin/atom
   register: atom_present
+
 - name: Download Atom
   get_url:
     url: https://atom.io/download/deb
     dest: /tmp/atom.deb
   when: not atom_present.stat.exists
+
 - name: Install Atom
   command: dpkg -i /tmp/atom.deb
   become: true
   when: not atom_present.stat.exists
-- name: clean up atom
+
+- name: Clean up downloaded atom installer
   file: path=/tmp/atom.deb state=absent
+
 - name: Install atom packages
   shell: "apm install {{ item }}"
   with_items:
@@ -24,3 +28,8 @@
     - seti-icons
     - seti-syntax
     - advanced-open-file
+
+- name: Copy Atom Config
+  template:
+    src: ../templates/my.atom.config
+    dest: ~/.atom/config.cson
