@@ -17,17 +17,36 @@
 - name: Clean up downloaded atom installer
   file: path=/tmp/atom.deb state=absent
 
+- name: Get installed atom packages
+  shell: apm ls -b
+  register: installed_atom_packages
+  changed_when: false
+
 - name: Install atom packages
   shell: "apm install {{ item }}"
+  when: item not in installed_atom_packages.stdout
   with_items:
-    - minimap
+    - advanced-open-file
+    - autoclose-html
+    - autocomplete-paths
+    - editor-stats
     - file-icons
     - git-diff
+    - git-log
+    - highlight-selected
+    - language-ansible
+    - language-docker
+    - language-gitignore
+    - lines
+    - minimap
+    - minimap-cursorline
+    - monokai-seti
+    - pigments
     - pretty-json
-    - seti-ui
     - seti-icons
     - seti-syntax
-    - advanced-open-file
+    - seti-ui
+    - todo-show
 
 - name: Copy Atom Config
   template:
