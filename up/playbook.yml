@@ -1,9 +1,9 @@
 ---
 - hosts: all
   roles:
+    - packages
     - creative
     - fun
     - developer
-    - packages
     - security
     - shell
