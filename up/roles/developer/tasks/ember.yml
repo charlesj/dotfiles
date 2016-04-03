@@ -3,4 +3,4 @@
   npm:
     name: ember-cli
     global: yes
-    state: latest
+    state: present
