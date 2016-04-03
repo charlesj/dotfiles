@@ -1,2 +1,3 @@
 ---
 - include: npm.yml
+- include: ember.yml

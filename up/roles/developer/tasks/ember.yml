@@ -1,0 +1,6 @@
+---
+- name: Install ember-cli
+  npm:
+    name: ember-cli
+    global: yes
+    state: latest
