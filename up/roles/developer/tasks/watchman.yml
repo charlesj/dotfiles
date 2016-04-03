@@ -1,0 +1,17 @@
+---
+- name: Ensure sources directory exists
+  file:
+    dest: ~/sources
+    state: directory
+    owner: josh
+- name: Clone watchman source
+  git:
+    repo: https://github.com/facebook/watchman.git
+    clone: yes
+    dest: ~/sources/watchman
+- name: Running ./configure for watchman
+  command: './configure chdir=~/sources/watchman'
+- name: Running "make" for watchman
+  command: 'make chdir=~/sources/watchman'
+- name: Running "make install" for watchman
+  command: 'make install chdir=~/sources/watchman'
