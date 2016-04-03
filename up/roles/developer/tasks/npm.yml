@@ -1,10 +1,10 @@
 ---
 - name: Install NPM
-  become: true
   apt: name=npm state=present
-- name: Ensure I'm the owner
-  become: true
+- name: Ensure I'm the owner of .npm
   file: path=~/.npm owner=josh
+- name: Ensure I'm the owner of node_modules
+  file: path=/usr/local/lib/node_modules/ owner=josh
 - name: Create sym-link with node for backward compatibility
   file:
     src: /usr/bin/nodejs

@@ -4,3 +4,13 @@
     name: ember-cli
     global: yes
     state: present
+- name: Install bower
+  npm:
+    name: bower
+    global: yes
+    state: present
+- name: Install PhantomJS
+  npm:
+    name: phantomjs-prebuilt
+    global: yes
+    state: present

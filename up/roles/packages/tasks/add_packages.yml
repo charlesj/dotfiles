@@ -10,6 +10,7 @@
     - ntp
     - terminator
     - zsh
+    - curl
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
