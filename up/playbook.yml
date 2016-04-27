@@ -3,7 +3,6 @@
   roles:
     - packages
     - creative
-    - fun
     - developer
     - security
     - shell

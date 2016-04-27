@@ -11,6 +11,9 @@
     - terminator
     - zsh
     - curl
+    - unity-tweak-tool
+    - handbrake
+    - caffeine
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
