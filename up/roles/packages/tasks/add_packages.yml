@@ -14,6 +14,7 @@
     - unity-tweak-tool
     - handbrake
     - caffeine
+    - mpv
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
