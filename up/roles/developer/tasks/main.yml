@@ -1,4 +1,0 @@
----
-#- include: npm.yml
-#- include: ember.yml
-#- include: watchman.yml
