@@ -1,6 +1,7 @@
 ---
 - name: Install Chrome Dependencies
   apt: pkg={{ item }} state=present
+  become: true
   with_items:
     - libxss1
     - libappindicator1
