@@ -1,6 +1,8 @@
 ---
 - name: Create Terminator Config Directory
-  file: path=~/.config/terminator state=directory
+  file:
+    path: ~/.config/terminator
+    state: directory
 - name: Copy Terminator Config
   template:
     src: ../templates/my.terminator.config
