@@ -1,2 +1,3 @@
 ---
 - include: yubikey.yml
+- include: enpass.yml

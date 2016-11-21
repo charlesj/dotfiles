@@ -8,4 +8,5 @@
   become: true
   apt:
     name: yubikey-neo-manager
+    update_cache: yes
     state: present

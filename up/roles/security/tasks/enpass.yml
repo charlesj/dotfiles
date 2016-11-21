@@ -1,0 +1,18 @@
+---
+- name: Add enpass repository
+  apt_repository:
+    repo: "deb http://repo.sinew.in/ stable main"
+    filename: "enpass"
+    state: present
+  become: true
+- name: Add enpass apt key
+  become: true
+  apt_key:
+    url: https://dl.sinew.in/keys/enpass-linux.key
+    state: present
+- name: Install Enpass
+  become: true
+  apt:
+    name: enpass
+    update_cache: yes
+    state: present
