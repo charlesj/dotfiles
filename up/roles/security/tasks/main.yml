@@ -1,3 +1,4 @@
 ---
+- include: disk-encryption.yml
 - include: yubikey.yml
 - include: enpass.yml

@@ -1,0 +1,9 @@
+- name: Install cryptsetup and disk utility
+  become: true
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: present
+  with_items:
+    - gnome-disk-utility
+    - cryptsetup
