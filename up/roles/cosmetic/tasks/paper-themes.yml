@@ -1,0 +1,16 @@
+---
+- name: Add paper themes ppa
+  apt_repository:
+    repo: "ppa:snwh/pulp"
+    state: present
+  become: true
+- name: Install paper themes
+  become: true
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: present
+  with_items:
+    - paper-icon-theme
+    - paper-gtk-theme
+    - paper-cursor-theme
