@@ -1,4 +1,5 @@
 ---
+- include: apt_setup.yml
 - include: add_packages.yml
 - include: google_chrome.yml
 - include: atom.yml

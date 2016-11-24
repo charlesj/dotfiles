@@ -1,0 +1,19 @@
+- name: Ensure apt-cache is up to date
+  become: true
+  apt:
+    update_cache: true
+    cache_valid_time: 14400 # four hours seems appropriate for a baseline
+- name: Add multiverse repository
+  become: true
+  apt_repository: repo="{{item}}"
+  register: multiverse_installed
+  with_items:
+    - "deb http://archive.ubuntu.com/ubuntu {{ansible_distribution_release}} multiverse"
+    - "deb-src http://archive.ubuntu.com/ubuntu/  {{ansible_distribution_release}} multiverse"
+    - "deb http://archive.ubuntu.com/ubuntu {{ansible_distribution_release}}-updates multiverse"
+    - "deb-src http://archive.ubuntu.com/ubuntu/  {{ansible_distribution_release}}-updates multiverse"
+- name: Update apt-cache
+  become: true
+  apt:
+    update_cache: true
+  when: multiverse_installed | changed
