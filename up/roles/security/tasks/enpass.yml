@@ -4,6 +4,7 @@
     repo: "deb http://repo.sinew.in/ stable main"
     filename: "enpass"
     state: present
+    update_cache: yes
   become: true
 - name: Add enpass apt key
   become: true
@@ -14,5 +15,4 @@
   become: true
   apt:
     name: enpass
-    update_cache: yes
     state: present

@@ -3,12 +3,12 @@
   apt_repository:
     repo: "ppa:snwh/pulp"
     state: present
+    update_cache: yes
   become: true
 - name: Install paper themes
   become: true
   apt:
     name: "{{ item }}"
-    update_cache: yes
     state: present
   with_items:
     - paper-icon-theme

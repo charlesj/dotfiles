@@ -3,10 +3,10 @@
   apt_repository:
     repo: "ppa:yubico/stable"
     state: present
+    update_cache: yes
   become: true
 - name: Install yubikey neo mamanger
   become: true
   apt:
     name: yubikey-neo-manager
-    update_cache: yes
     state: present
