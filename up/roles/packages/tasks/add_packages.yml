@@ -15,6 +15,7 @@
     - handbrake
     - caffeine
     - mpv
+    - gnome-tweak-tool
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
