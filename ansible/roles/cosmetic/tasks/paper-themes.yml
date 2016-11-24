@@ -14,3 +14,12 @@
     - paper-icon-theme
     - paper-gtk-theme
     - paper-cursor-theme
+- name: Set Icon and Theme
+  gsettings:
+    schema: org.gnome.desktop.interface
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items:
+    - {key: gtk-theme, value: "Paper"}
+    - {key: icon-theme, value: "Paper"}
+    - {key: cursor-theme, value: "Paper"}
