@@ -3,7 +3,8 @@
   template:
     src: ../templates/my.vimrc
     dest: ~/.vimrc
-- name: Install Powerline
-  pip:
-    name: powerline-status
-    state: present
+# will wait until I actually use this to install.
+#- name: Install Powerline
+#  pip:
+#    name: powerline-status
+#    state: present

@@ -1,2 +1,3 @@
 ---
+- include: gaming.yml
 - include: cowsay.yml
