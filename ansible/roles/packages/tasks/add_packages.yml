@@ -18,6 +18,7 @@
     - gnome-tweak-tool
     - exfat-fuse
     - exfat-utils
+    - synaptic
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
