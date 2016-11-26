@@ -3,6 +3,7 @@ My main configuration for a new ubuntu machine - a work always in progress.
 Todo
 - make apm module installation truly idempotent
 - setup latex environment
+- set background to solid gray color in cosmetic
 
 Much thanks to the following people / repos for helping me set this up:
 - https://github.com/MichaelAquilina/ubuntu-ansible
