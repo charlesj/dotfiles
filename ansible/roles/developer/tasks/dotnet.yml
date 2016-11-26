@@ -17,6 +17,13 @@
   apt:
     name: mono-complete
     state: present
+- name: Add repository for libicu52
+  become: true
+  apt_repository:
+    repo: "deb http://security.ubuntu.com/ubuntu trusty-security main"
+    filename: "dotnetlegacy"
+    state: present
+    update_cache: yes
 - name: Add dotnet core key
   become: true
   apt_key:
@@ -33,5 +40,5 @@
 - name: Install dotnet core
   become: true
   apt:
-    name: dotnet-dev-1.0.0-preview2-1-003177
+    name: dotnet-dev-1.0.0-preview3-004056
     state: present
