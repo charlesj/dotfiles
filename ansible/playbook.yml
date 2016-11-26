@@ -2,6 +2,7 @@
 - hosts: all
   roles:
     - packages
+    - developer
     - creative
     - security
     - shell

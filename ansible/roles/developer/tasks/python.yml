@@ -1,0 +1,4 @@
+---
+- name: Install Virtualenv
+  become: true
+  pip: name=virtualenv state=present
