@@ -1,4 +1,10 @@
 ---
+- name: Install essential build packages
+  apt:
+    name: build-essential
+    state: present
+  become: true
+
 - include: virtualization.yml
 - include: python.yml
 - include: dotnet.yml
