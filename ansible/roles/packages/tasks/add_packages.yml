@@ -21,6 +21,7 @@
     - exfat-fuse
     - exfat-utils
     - synaptic
+    - arandr
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
