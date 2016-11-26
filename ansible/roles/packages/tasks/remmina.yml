@@ -1,0 +1,15 @@
+---
+- name: Add remmina ppa
+  apt_repository:
+    repo: "ppa:remmina-ppa-team/remmina-next"
+    state: present
+    update_cache: yes
+  become: true
+- name: Install remmina and rdp plugin
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - remmina
+    - remmina-plugin-rdp
