@@ -1,3 +1,4 @@
 ---
 - include: virtualization.yml
 - include: python.yml
+- include: dotnet.yml
