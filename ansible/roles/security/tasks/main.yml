@@ -1,4 +1,9 @@
 ---
+- name: Never Auto-run with Removable Media
+  gsettings:
+    schema: org.gnome.desktop.media-handling
+    key: autorun-never
+    value: "true"
 - include: disk-encryption.yml
 - include: yubikey.yml
 - include: enpass.yml
