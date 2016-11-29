@@ -43,7 +43,7 @@
     lineinfile:
       dest: ~/.zshrc
       regexp: ^POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=
-      line: POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir vcs status)
+      line: POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir vcs status)
       insertafter: ^ZSH_THEME=
 
   - name: Set powerlevel9k option for right prompt
