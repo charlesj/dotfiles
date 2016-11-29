@@ -1,3 +1,14 @@
 [user]
 	email = josh.charles@gmail.com
 	name = Josh Charles
+[color]
+	ui = auto
+[core]
+	autocrlf = input
+	editor = vim
+[diff]
+	renames = copies
+[branch]
+	autosetupmerge = true
+[push]
+	default = tracking
