@@ -1,7 +1,6 @@
 My main configuration for a new ubuntu machine - a work always in progress.
 
 Todo
-- make apm module installation truly idempotent
 - setup latex environment
 
 Much thanks to the following people / repos for helping me set this up:

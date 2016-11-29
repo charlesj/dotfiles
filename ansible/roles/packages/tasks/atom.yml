@@ -17,14 +17,9 @@
 - name: Clean up downloaded atom installer
   file: path=/tmp/atom.deb state=absent
 
-- name: Get installed atom packages
-  shell: apm ls -b
-  register: installed_atom_packages
-  changed_when: false
-
 - name: Install atom packages
-  shell: "apm install {{ item }}"
-  when: item not in installed_atom_packages.stdout
+  apm:
+    name: "{{ item }}"
   with_items:
     - advanced-open-file
     - autoclose-html
