@@ -7,3 +7,4 @@
 - include: disk-encryption.yml
 - include: yubikey.yml
 - include: enpass.yml
+- include: keybase.io.yml

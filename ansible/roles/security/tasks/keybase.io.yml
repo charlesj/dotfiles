@@ -1,0 +1,18 @@
+---
+- name: Check if Keybase is installed
+  command: dpkg-query -W keybase
+  register: keybase_install_check
+  failed_when: keybase_install_check.rc > 1
+  changed_when: keybase_install_check.rc == 1
+- name: Download keybase
+  get_url:
+    url: https://prerelease.keybase.io/keybase_amd64.deb
+    dest: /tmp/keybase.deb
+  when: keybase_install_check.rc == 1
+- name: Install Keybase
+  command: dpkg -i /tmp/keybase.deb
+  become: true
+  when: keybase_install_check.rc == 1
+- name: Clean up keybase deb file
+  file: path=/tmp/keybase.deb state=absent
+# reminder, because you'll probably look here.  Start by running `run_keybase`
