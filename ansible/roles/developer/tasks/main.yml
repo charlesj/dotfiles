@@ -9,3 +9,4 @@
 - include: python.yml
 - include: dotnet.yml
 - include: nodejs.yml
+- include: tex.yml
