@@ -20,3 +20,4 @@
     - {key: launcher-hide-mode, value: 1}
     - {key: num-launchers, value: 1}
 - include: paper-themes.yml
+- include: unity-greeter.yml
