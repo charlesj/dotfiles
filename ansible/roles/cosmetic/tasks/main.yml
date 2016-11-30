@@ -9,4 +9,5 @@
     - {key: secondary-color, value: "#424242"}
     - {key: color-shading-type, value: "solid"}
     - {key: picture-uri, value: ""}
+    - {key: picture-options, value: "none"}
 - include: paper-themes.yml
