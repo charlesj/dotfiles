@@ -13,6 +13,10 @@
 - name: Autohide the launcher
   gsettings:
     schema: org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/
-    key: launcher-hide-mode
-    value: 1
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items:
+    - {key: launcher-capture-mouse, value: "false"}
+    - {key: launcher-hide-mode, value: 1}
+    - {key: num-launchers, value: 1}
 - include: paper-themes.yml
