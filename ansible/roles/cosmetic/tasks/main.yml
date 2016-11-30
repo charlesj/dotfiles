@@ -1,5 +1,5 @@
 ---
-- name: Background color
+- name: Set Background
   gsettings:
     schema: org.gnome.desktop.background
     key: "{{ item.key }}"
@@ -10,4 +10,9 @@
     - {key: color-shading-type, value: "solid"}
     - {key: picture-uri, value: ""}
     - {key: picture-options, value: "none"}
+- name: Autohide the launcher
+  gsettings:
+    schema: org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/
+    key: launcher-hide-mode
+    value: 1
 - include: paper-themes.yml
