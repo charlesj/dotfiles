@@ -10,3 +10,4 @@
     - {key: color-shading-type, value: "solid"}
     - {key: picture-uri, value: ""}
 - include: paper-themes.yml
+- include: unity-greeter.yml

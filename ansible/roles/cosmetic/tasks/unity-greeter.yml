@@ -1,0 +1,13 @@
+- name: Set Login screen look
+  become: true
+  become_user: lightdm
+  gsettings:
+    schema: com.canonical.unity-greeter
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items:
+    - {key: draw-user-backgrounds, value: "false"}
+    - {key: background, value: ""}
+    - {key: draw-grid, value: "false"}
+    - {key: play-ready-sound, value: "false"}
+    - {key: background-color, value: "#424242"}
