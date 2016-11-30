@@ -6,6 +6,7 @@
     - libxss1
     - libappindicator1
     - libindicator7
+    - libpango1.0-0
 - name: Is Chrome Installed
   stat: path=/usr/bin/google-chrome
   register: chrome_present
