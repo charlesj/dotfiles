@@ -1,0 +1,19 @@
+---
+- name: Add crystal apt key
+  become: true
+  apt_key:
+    keyserver: keys.gnupg.net
+    id: 09617FD37CC06B54
+    state: present
+- name: Add crystal repository
+  apt_repository:
+    repo: "deb https://dist.crystal-lang.org/apt crystal main"
+    filename: "crystal"
+    state: present
+    update_cache: yes
+  become: true
+- name: Install Crystal compiler
+  become: true
+  apt:
+    name: crystal
+    state: present

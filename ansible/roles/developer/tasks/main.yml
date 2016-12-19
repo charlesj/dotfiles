@@ -10,3 +10,4 @@
 - include: dotnet.yml
 - include: nodejs.yml
 - include: tex.yml
+- include: crystal.yml
