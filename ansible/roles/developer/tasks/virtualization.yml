@@ -4,11 +4,6 @@
     name: virtualbox
     state: present
   become: true
-- name: Install Virtualbox extension pack
-  apt:
-    name: virtualbox-ext-pack
-    state: present
-  become: true
 - name: Install Vagrant
   apt:
     name: vagrant
