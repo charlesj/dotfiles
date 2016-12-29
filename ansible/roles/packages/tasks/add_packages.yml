@@ -23,6 +23,7 @@
     - synaptic
     - arandr
     - dconf-editor
+    - bleachbit
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
