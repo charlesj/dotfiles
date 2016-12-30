@@ -24,6 +24,7 @@
     - arandr
     - dconf-editor
     - bleachbit
+    - jq
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
