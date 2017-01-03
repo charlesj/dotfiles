@@ -25,6 +25,7 @@
     - dconf-editor
     - bleachbit
     - jq
+    - cloc
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
