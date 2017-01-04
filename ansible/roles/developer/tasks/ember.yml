@@ -19,15 +19,19 @@
     state: latest
 - name: Clone watchman repository
   git:
-    repo: https://github.com/bhilburn/powerlevel9k.git
+    repo: https://github.com/facebook/watchman.git
     clone: yes
     dest: ~/.tool-sources/watchman
 - name: Compile watchman
   command: '"{{ item }}" chdir=~/.tool-sources/watchman'
+  register: watchman_results
   with_items:
     - ./autogen.sh
     - ./configure
     - make
+    - pwd
 - name: Install watchman
-  command: '"make install" chdir=~/.tool-sources/watchman'
+  command: "make install"
+  args:
+   chdir: "{{ watchman_results.results[3].stdout }}"
   become: true
