@@ -1,0 +1,33 @@
+---
+- name: Install ember cli
+  become: true
+  npm:
+    name: ember-cli
+    global: yes
+    state: latest
+- name: Install bower
+  become: true
+  npm:
+    name: bower
+    global: yes
+    state: latest
+- name: Install phantomjs
+  become: true
+  npm:
+    name: phantomjs-prebuilt
+    global: yes
+    state: latest
+- name: Clone watchman repository
+  git:
+    repo: https://github.com/bhilburn/powerlevel9k.git
+    clone: yes
+    dest: ~/.tool-sources/watchman
+- name: Compile watchman
+  command: '"{{ item }}" chdir=~/.tool-sources/watchman'
+  with_items:
+    - ./autogen.sh
+    - ./configure
+    - make
+- name: Install watchman
+  command: '"make install" chdir=~/.tool-sources/watchman'
+  become: true
