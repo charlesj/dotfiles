@@ -18,27 +18,32 @@
     global: yes
     state: latest
 - name: Find out if watchman is installed
-  command: "which watchman"
+  stat:
+    path: /usr/bin/watchman
   register: watchman_installed
 - name: Clone watchman repository
   git:
     repo: https://github.com/facebook/watchman.git
     clone: yes
     dest: /src/watchman
-  when: "{{ watchman_installed.stdout == 'watchman not found' }}"
+  when: watchman_installed.stat.exists == False
+  become: true
 - name: Pre-compilation watchman steps
   command: '"{{ item }}" chdir=/src/watchman'
   register: watchman_results
   with_items:
     - ./autogen.sh
     - ./configure
-  when: "{{ watchman_installed.stdout == 'watchman not found' }}"
+  become: true
+  when: watchman_installed.stat.exists == False
 - name: Compile watchman
   make:
     chdir: /src/watchman
+  become: true
+  when: watchman_installed.stat.exists == False
 - name: Install watchman
   make:
     chdir: /src/watchman
     target: install
   become: true
-  when: "{{ watchman_installed.stdout == 'watchman not found' }}"
+  when: watchman_installed.stat.exists == False
