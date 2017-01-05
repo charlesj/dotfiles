@@ -1,0 +1,49 @@
+---
+- name: Install ember cli
+  become: true
+  npm:
+    name: ember-cli
+    global: yes
+    state: latest
+- name: Install bower
+  become: true
+  npm:
+    name: bower
+    global: yes
+    state: latest
+- name: Install phantomjs
+  become: true
+  npm:
+    name: phantomjs-prebuilt
+    global: yes
+    state: latest
+- name: Find out if watchman is installed
+  stat:
+    path: /usr/local/bin/watchman
+  register: watchman_installed
+- name: Clone watchman repository
+  git:
+    repo: https://github.com/facebook/watchman.git
+    clone: yes
+    dest: /src/watchman
+  when: watchman_installed.stat.exists == False
+  become: true
+- name: Pre-compilation watchman steps
+  command: '"{{ item }}" chdir=/src/watchman'
+  register: watchman_results
+  with_items:
+    - ./autogen.sh
+    - ./configure
+  become: true
+  when: watchman_installed.stat.exists == False
+- name: Compile watchman
+  make:
+    chdir: /src/watchman
+  become: true
+  when: watchman_installed.stat.exists == False
+- name: Install watchman
+  make:
+    chdir: /src/watchman
+    target: install
+  become: true
+  when: watchman_installed.stat.exists == False

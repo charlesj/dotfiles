@@ -1,9 +1,13 @@
 ---
-- name: Install essential build packages
+- name: Install build packages and tools
   apt:
-    name: build-essential
+    name: "{{ item }}"
     state: present
   become: true
+  with_items:
+    - build-essential
+    - autotools-dev
+    - automake
 
 - include: virtualization.yml
 - include: python.yml
@@ -11,3 +15,4 @@
 - include: nodejs.yml
 - include: tex.yml
 - include: crystal.yml
+- include: ember.yml
