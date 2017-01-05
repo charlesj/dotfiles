@@ -19,7 +19,7 @@
     state: latest
 - name: Find out if watchman is installed
   stat:
-    path: /usr/bin/watchman
+    path: /usr/local/bin/watchman
   register: watchman_installed
 - name: Clone watchman repository
   git:
