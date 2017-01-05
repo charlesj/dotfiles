@@ -17,21 +17,28 @@
     name: phantomjs-prebuilt
     global: yes
     state: latest
+- name: Find out if watchman is installed
+  command: "which watchman"
+  register: watchman_installed
 - name: Clone watchman repository
   git:
     repo: https://github.com/facebook/watchman.git
     clone: yes
-    dest: ~/.tool-sources/watchman
-- name: Compile watchman
-  command: '"{{ item }}" chdir=~/.tool-sources/watchman'
+    dest: /src/watchman
+  when: "{{ watchman_installed.result[0].stdout == 'watchman not found' }}"
+- name: Pre-compilation watchman steps
+  command: '"{{ item }}" chdir=/src/watchman'
   register: watchman_results
   with_items:
     - ./autogen.sh
     - ./configure
-    - make
-    - pwd
+  when: "{{ watchman_installed.result[0].stdout == 'watchman not found' }}"
+- name: Compile watchman
+  make:
+    chdir: /src/watchman
 - name: Install watchman
-  command: "make install"
-  args:
-   chdir: "{{ watchman_results.results[3].stdout }}"
+  make:
+    chdir: /src/watchman
+    target: install
   become: true
+  when: "{{ watchman_installed.result[0].stdout == 'watchman not found' }}"
