@@ -15,4 +15,4 @@
   become: true
   apt:
     name: nodejs
-    state: latest
+    state: present
