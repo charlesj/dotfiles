@@ -1,9 +1,20 @@
 #!/bin/sh
 set -e
 
-sudo apt-get install -y software-properties-common
-sudo apt-add-repository ppa:ansible/ansible -y
-sudo apt-get update
-sudo apt-get install -y ansible
+GITCRYPT_TARGET=/usr/local/bin/gitcrypt
 
-sudo cp gitcrypt /usr/local/bin/gitcrypt
+if which ansible >/dev/null; then
+    echo skipping ansible installation
+else
+    sudo apt-get install -y software-properties-common
+    sudo apt-add-repository ppa:ansible/ansible -y
+    sudo apt-get update
+    sudo apt-get install -y ansible
+fi
+
+if [ ! -f "$GITCRYPT_TARGET" ]; then
+    sudo cp gitcrypt "$GITCRYPT_TARGET"
+    echo installed gitcrypt to "$GITCRYPT_TARGET"
+else
+    echo gitgrypt already installed
+fi
