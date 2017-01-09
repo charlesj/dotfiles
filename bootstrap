@@ -1,5 +1,9 @@
 #!/bin/sh
+set -e
+
 sudo apt-get install -y software-properties-common
 sudo apt-add-repository ppa:ansible/ansible -y
 sudo apt-get update
 sudo apt-get install -y ansible
+
+sudo cp gitcrypt /usr/local/bin/gitcrypt
