@@ -28,6 +28,7 @@
     - cloc
     - calibre
     - nfs-common
+    - nfs-kernel-server
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
