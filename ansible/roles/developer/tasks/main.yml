@@ -8,6 +8,10 @@
     - build-essential
     - autotools-dev
     - automake
+    - cmake
+    - libfreetype6-dev
+    - libfontconfig1-dev
+    - xclip
 
 - include: virtualization.yml
 - include: python.yml
