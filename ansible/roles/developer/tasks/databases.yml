@@ -1,0 +1,8 @@
+---
+- name: Install database management tools
+  apt:
+    name: "{{ item }}"
+    state: present
+  become: true
+  with_items:
+    - pgadmin3
