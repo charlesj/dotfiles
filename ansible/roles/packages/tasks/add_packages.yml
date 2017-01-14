@@ -30,6 +30,7 @@
     - nfs-common
     - nfs-kernel-server
     - w3m
+    - lynx
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
