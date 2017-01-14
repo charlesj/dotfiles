@@ -29,6 +29,7 @@
     - calibre
     - nfs-common
     - nfs-kernel-server
+    - w3m
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
