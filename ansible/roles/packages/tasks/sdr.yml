@@ -1,0 +1,26 @@
+---
+- name: Add PPAs for gqrx
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+    update_cache: yes
+  become: true
+  with_items:
+    - ppa:ettusresearch/uhd
+    - ppa:myriadrf/drivers
+    - ppa:myriadrf/gnuradio
+    - ppa:gqrx/gqrx-sdr
+- name: Install gqrx-sdr
+  apt:
+    name: gqrx-sdr
+    state: latest
+  become: true
+- name: Install libvolk1-bin
+  apt:
+    name: libvolk1-bin
+    state: present
+  become: true
+  register: libvolk1
+- name: Run volk profile
+  command: volk_profile
+  when: libvolk1.changed
