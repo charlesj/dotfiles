@@ -31,6 +31,9 @@
     - nfs-kernel-server
     - w3m
     - lynx
+    - htop
+    - iftop
+    - iotop
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
