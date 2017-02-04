@@ -1,7 +1,33 @@
 ---
+- name: Add virtualbox oracle apt key
+  become: true
+  apt_key:
+    url: "{{ item }}"
+    state: present
+  with_items:
+   - https://www.virtualbox.org/download/oracle_vbox.asc
+   - https://www.virtualbox.org/download/oracle_vbox_2016.asc
+  become: true
+- name: Add Virtualbox apt repo
+  apt_repository:
+    repo: "deb http://download.virtualbox.org/virtualbox/debian xenial contrib"
+    filename: "virtualbox"
+    state: present
+    update_cache: yes
+  become: true
+- name: Install VB Prerequisites
+  apt:
+    name: libqt5x11extras5
+    state: present
+  become: true
 - name: Install Virtualbox
   apt:
-    name: virtualbox
+    name: virtualbox-5.1
+    state: present
+  become: true
+- name: Install Dkms so VB can host kernel modules
+  apt:
+    name: dkms
     state: present
   become: true
 - name: See if vagrant is installed
