@@ -4,19 +4,19 @@
   npm:
     name: ember-cli
     global: yes
-    state: latest
+    state: present
 - name: Install bower
   become: true
   npm:
     name: bower
     global: yes
-    state: latest
+    state: present
 - name: Install phantomjs
   become: true
   npm:
     name: phantomjs-prebuilt
     global: yes
-    state: latest
+    state: present
 - name: Find out if watchman is installed
   stat:
     path: /usr/local/bin/watchman
