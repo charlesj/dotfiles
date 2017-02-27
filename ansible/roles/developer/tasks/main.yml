@@ -21,3 +21,4 @@
 - include: crystal.yml
 - include: ember.yml
 - include: databases.yml
+- include: elixir.yml

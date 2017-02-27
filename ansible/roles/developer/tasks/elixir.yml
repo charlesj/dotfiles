@@ -1,0 +1,29 @@
+---
+- name: Is Elixir Installed
+  stat: path=/usr/local/bin/elixir
+  register: elixir_present
+- name: Download Elixir repository package
+  get_url:
+    url: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+    dest: /tmp/erlang-solutions_1.0_all.deb
+  when: not elixir_present.stat.exists
+- name: Install Elixir repository
+  command: dpkg -i /tmp/erlang-solutions_1.0_all.deb
+  become: true
+  when: not elixir_present.stat.exists
+- name: Update apt-cache
+  become: true
+  apt:
+    update_cache: true
+  when: not elixir_present.stat.exists
+- name: clean up
+  file: path=/tmp/erlang-solutions_1.0_all.deb state=absent
+- name: Install Erlang
+  become: true
+  apt:
+    name: esl-erlang
+    state: present
+- name: Install Elixir
+  become: true
+  apt:
+    name: elixir
