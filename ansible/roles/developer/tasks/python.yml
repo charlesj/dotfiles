@@ -1,4 +1,19 @@
 ---
 - name: Install Virtualenv
   become: true
-  pip: name=virtualenv state=present
+  pip:
+    name: virtualenv
+    state: present
+- name: Install Virtualenv wrapper
+  become: true
+  pip:
+    name: virtualenvwrapper
+    state: present
+- name: Add virtualenv wrapper lines to .profile
+  lineinfile:
+    dest: /home/josh/.profile
+    line: "{{ item }}"
+  with_items:
+    - export WORKON_HOME=$HOME/.virtualenvs
+    - export PROJECT_HOME=$HOME/workspace
+    - source /usr/local/bin/virtualenvwrapper.sh
