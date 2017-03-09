@@ -11,7 +11,7 @@
     state: present
 - name: Add virtualenv wrapper lines to .profile
   lineinfile:
-    dest: /home/josh/.profile
+    dest: /home/josh/.zshrc
     line: "{{ item }}"
   with_items:
     - export WORKON_HOME=$HOME/.virtualenvs
