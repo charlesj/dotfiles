@@ -21,6 +21,7 @@
   apm:
     name: "{{ item }}"
   with_items:
+    - activate-power-mode
     - advanced-open-file
     - autoclose-html
     - autocomplete-paths
@@ -28,11 +29,16 @@
     - file-icons
     - git-diff
     - git-log
+    - goto-definition
     - highlight-selected
     - language-ansible
+    - language-babel
     - language-docker
     - language-gitignore
+    - last-cursor-position
     - lines
+    - markdown-writer
+    - merge-conflicts
     - minimap
     - minimap-cursorline
     - monokai-seti
@@ -42,6 +48,10 @@
     - seti-syntax
     - seti-ui
     - todo-show
+    - trailing-spaces
+    - wakatime
+    - wordcount
+    - zentabs
 
 - name: Copy Atom Config
   template:
