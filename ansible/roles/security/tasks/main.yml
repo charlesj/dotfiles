@@ -8,3 +8,4 @@
 - include: yubikey.yml
 - include: enpass.yml
 - include: keybase.io.yml
+- include: ssh_keys.yml

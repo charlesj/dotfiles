@@ -1,0 +1,17 @@
+---
+- name: See if keys exist to prevent accidental overwrite of other keys
+  stat:
+    path: ~/.ssh/id_rsa
+  register: ssh_key_exist
+- name: Copy ssh private key
+  copy:
+    src: ../files/id_rsa
+    dest: ~/.ssh/id_rsa
+    backup: yes
+  when: not ssh_key_exist.stat.exists
+- name: Copy ssh public key
+  copy:
+    src: ../files/id_rsa.pub
+    dest: ~/.ssh/id_rsa.pub
+    backup: yes
+  when: not ssh_key_exist.stat.exists
