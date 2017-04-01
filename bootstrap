@@ -1,8 +1,6 @@
 #!/bin/sh
 set -e
 
-GITCRYPT_TARGET=/usr/local/bin/gitcrypt
-
 if which ansible >/dev/null; then
     echo skipping ansible installation
 else
@@ -10,11 +8,4 @@ else
     sudo apt-add-repository ppa:ansible/ansible -y
     sudo apt-get update
     sudo apt-get install -y ansible
-fi
-
-if [ ! -f "$GITCRYPT_TARGET" ]; then
-    sudo cp gitcrypt "$GITCRYPT_TARGET"
-    echo installed gitcrypt to "$GITCRYPT_TARGET"
-else
-    echo gitgrypt already installed
 fi
