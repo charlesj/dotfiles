@@ -7,7 +7,6 @@
   with_items:
    - https://www.virtualbox.org/download/oracle_vbox.asc
    - https://www.virtualbox.org/download/oracle_vbox_2016.asc
-  become: true
 - name: Add Virtualbox apt repo
   apt_repository:
     repo: "deb http://download.virtualbox.org/virtualbox/debian xenial contrib"
