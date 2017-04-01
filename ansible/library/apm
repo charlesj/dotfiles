@@ -34,6 +34,7 @@ def main():
             'name': {'required': True},
             'version': {'default': None},
         },
+        supports_check_mode=True
     )
 
     name = module.params['name']
@@ -45,7 +46,8 @@ def main():
 
         if name not in packages or (version is not None and version != packages[name]):
             changed = True
-            install_package(name, version)
+            if not module.check_mode:
+                install_package(name, version)
     except subprocess.CalledProcessError as e:
         module.fail_json(msg=e.output)
     else:
