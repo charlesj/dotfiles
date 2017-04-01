@@ -25,6 +25,7 @@
     - advanced-open-file
     - autoclose-html
     - autocomplete-paths
+    - chester-atom-syntax
     - editor-stats
     - file-icons
     - git-diff
