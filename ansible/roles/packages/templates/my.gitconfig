@@ -1,6 +1,10 @@
-[user]
-	email = josh.charles@gmail.com
-	name = Josh Charles
+[alias]
+	prune = fetch --prune
+	undo = reset --soft HEAD^
+	stash-all = stash save --include-untracked
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+[branch]
+	autosetupmerge = true
 [color]
 	ui = auto
 [core]
@@ -8,7 +12,10 @@
 	editor = vim
 [diff]
 	renames = copies
-[branch]
-	autosetupmerge = true
 [push]
 	default = tracking
+[status]
+	showUntrackedFiles = all
+[user]
+	email = josh.charles@gmail.com
+	name = Josh Charles
