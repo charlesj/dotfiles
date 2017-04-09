@@ -1,22 +1,15 @@
 ---
-- name: Check if Atom is installed
-  stat: path=/usr/bin/atom
-  register: atom_present
-
-- name: Download Atom
-  get_url:
-    url: https://atom.io/download/deb
-    dest: /tmp/atom.deb
-  when: not atom_present.stat.exists
-
-- name: Install Atom
-  command: dpkg -i /tmp/atom.deb
+- name: Add atom ppa
+  apt_repository:
+    repo: "ppa:webupd8team/atom"
+    state: present
+    update_cache: yes
   become: true
-  when: not atom_present.stat.exists
-
-- name: Clean up downloaded atom installer
-  file: path=/tmp/atom.deb state=absent
-
+- name: Install or Update Atom to latest
+  become: true
+  apt:
+    name: atom
+    state: latest
 - name: Install atom packages
   apm:
     name: "{{ item }}"
@@ -50,7 +43,6 @@
     - seti-ui
     - todo-show
     - trailing-spaces
-    - wakatime
     - wordcount
     - zentabs
 
