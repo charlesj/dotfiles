@@ -2,9 +2,9 @@
 - hosts: all
   roles:
     - packages
+    - shell
     - developer
     - creative
     - security
-    - shell
     - cosmetic
     - fun
