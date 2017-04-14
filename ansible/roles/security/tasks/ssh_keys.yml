@@ -3,6 +3,10 @@
   stat:
     path: ~/.ssh/id_rsa
   register: ssh_key_exist
+- name: Ensure .ssh directory exists
+  file:
+    path: ~/.ssh
+    state: directory
 - name: Copy ssh private key
   copy:
     src: ../files/id_rsa

@@ -12,6 +12,8 @@
     - libfreetype6-dev
     - libfontconfig1-dev
     - xclip
+    - libtool
+    - libssl-dev
 
 - include: virtualization.yml
 - include: python.yml
