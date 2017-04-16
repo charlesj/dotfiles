@@ -16,3 +16,43 @@
   apt:
     name: nodejs
     state: present
+- name: Install npm packages
+  become: true
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: present
+  with_items:
+    - ember-cli
+    - bower
+    - phantomjs-prebuilt
+- name: Find out if watchman is installed
+  stat:
+    path: /usr/local/bin/watchman
+  register: watchman_installed
+- name: Clone watchman repository
+  git:
+    repo: https://github.com/facebook/watchman.git
+    clone: yes
+    dest: /src/watchman
+  when: watchman_installed.stat.exists == False
+  become: true
+- name: Pre-compilation watchman steps
+  command: '"{{ item }}" chdir=/src/watchman'
+  register: watchman_results
+  with_items:
+    - ./autogen.sh
+    - ./configure
+  become: true
+  when: watchman_installed.stat.exists == False
+- name: Compile watchman
+  make:
+    chdir: /src/watchman
+  become: true
+  when: watchman_installed.stat.exists == False
+- name: Install watchman
+  make:
+    chdir: /src/watchman
+    target: install
+  become: true
+  when: watchman_installed.stat.exists == False

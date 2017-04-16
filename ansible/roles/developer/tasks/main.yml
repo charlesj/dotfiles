@@ -21,6 +21,5 @@
 - include: nodejs.yml
 - include: tex.yml
 - include: crystal.yml
-- include: ember.yml
 - include: databases.yml
 - include: elixir.yml
