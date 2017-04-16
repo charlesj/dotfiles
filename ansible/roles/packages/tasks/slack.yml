@@ -1,0 +1,32 @@
+---
+- name: Is slack Installed
+  stat: path=/usr/bin/slack
+  register: slack_present
+- name: Download slack installation package
+  get_url:
+    url: https://downloads.slack-edge.com/linux_releases/slack-desktop-2.5.2-amd64.deb
+    dest: /tmp/slack.deb
+  when: not slack_present.stat.exists
+- name: Install slack
+  command: dpkg -i /tmp/slack.deb
+  become: true
+  when: not slack_present.stat.exists
+- name: Clean up
+  file: path=/tmp/slack.deb state=absent
+- name: Ensure configuration directory exists
+  file:
+    path: ~/.config/Slack/storage/
+    state: directory
+- name: Copy configuration file only if actually installing
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    backup: yes
+  with_items:
+    - src: ../files/my.slack.appTeams
+      dest: ~/.config/Slack/storage/slack-appTeams
+    - src: ../files/my.slack.settings
+      dest: ~/.config/Slack/storage/slack-settings
+    - src: ../files/my.slack.teams
+      dest: ~/.config/Slack/storage/slack-teams
+  when: not slack_present.stat.exists

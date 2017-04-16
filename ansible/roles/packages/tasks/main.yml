@@ -9,3 +9,4 @@
 - include: remmina.yml
 - include: sdr.yml
 - include: gitkraken.yml
+- include: slack.yml
