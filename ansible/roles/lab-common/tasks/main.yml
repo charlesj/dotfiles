@@ -12,3 +12,8 @@
   with_items:
    - vim
    - httpie
+   - ntp
+   - htop
+   - iftop
+   - iotop
+   - jq

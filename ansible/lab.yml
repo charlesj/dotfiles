@@ -1,0 +1,7 @@
+---
+- hosts: lab
+  roles:
+    - lab-common
+- hosts: lab-host
+  roles:
+    - lab-host
