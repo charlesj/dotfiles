@@ -1,3 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python
+import argparse
+import subprocess
 
-ansible-playbook -i "localhost," -c local playbook.yml --ask-sudo-pass "$@"
+parser = argparse.ArgumentParser(description='My Ansible Provisioner')
+parser.add_argument('-p', '--playbook', help='The playbook to run', default='workstation')
+args = parser.parse_args()
+
+playbook_file = args.playbook + '.yml'
+command = 'ansible-playbook ' + playbook_file
+retcode = subprocess.call(command, shell = True)
+exit(retcode)
