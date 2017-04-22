@@ -18,6 +18,7 @@
     - advanced-open-file
     - autoclose-html
     - autocomplete-paths
+    - autocomplete-python
     - chester-atom-syntax
     - editor-stats
     - file-icons
@@ -31,6 +32,7 @@
     - language-gitignore
     - last-cursor-position
     - lines
+    - linter
     - markdown-writer
     - merge-conflicts
     - minimap
