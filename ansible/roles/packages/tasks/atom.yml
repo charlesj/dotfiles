@@ -32,7 +32,6 @@
     - language-gitignore
     - last-cursor-position
     - lines
-    - linter
     - markdown-writer
     - merge-conflicts
     - minimap
