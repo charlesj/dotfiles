@@ -42,6 +42,7 @@
     - ember-cli
     - bower
     - phantomjs-prebuilt
+    - create-react-app
 - name: Find out if watchman is installed
   stat:
     path: /usr/local/bin/watchman
