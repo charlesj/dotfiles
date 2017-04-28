@@ -1,0 +1,15 @@
+---
+- name: Install mancy
+  become: yes
+  npm:
+    name: mancy
+    state: present
+    global: yes
+- name: Download Icon
+  get_url:
+    url: https://github.com/princejwesley/Mancy/blob/master/icons/mancy.png
+    dest: ~/.config/mancy.png
+- name: Create desktop entry
+  template:
+    src: ../templates/mancy.desktop
+    dest: ~/.local/share/applications/mancy.desktop
