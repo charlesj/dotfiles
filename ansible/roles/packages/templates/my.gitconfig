@@ -19,3 +19,6 @@
 [user]
 	email = josh.charles@gmail.com
 	name = Josh Charles
+	signingkey = 201513A8
+[commit]
+	gpgsign = true
