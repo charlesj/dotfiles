@@ -13,12 +13,3 @@
   when: not gitkraken_present.stat.exists
 - name: Clean up
   file: path=/tmp/gitkraken.deb state=absent
-- name: Ensure configuration directory exists
-  file:
-    path: ~/.gitkraken/
-    state: directory
-- name: Copy configuration file
-  copy:
-    src: ../files/my.gitkraken.config
-    dest: ~/.gitkraken/config
-    backup: yes
