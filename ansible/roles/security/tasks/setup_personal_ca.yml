@@ -1,0 +1,19 @@
+---
+- name: Ensure ca directory exists
+  become: true
+  file:
+    path: /usr/local/share/ca-certificates/demonreach/
+    state: directory
+    mode: 0755
+- name: Copy certificate
+  become: true
+  copy:
+    src: ../files/demonreach_station.crt
+    dest: /usr/local/share/ca-certificates/demonreach/demonreach_station.crt
+    backup: yes
+    mode: 0644
+  register: certificate_copied
+- name: Update certs
+  command: update-ca-certificates
+  become: true
+  when: certificate_copied | changed

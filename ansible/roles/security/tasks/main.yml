@@ -9,3 +9,4 @@
 - include: enpass.yml
 - include: keybase.io.yml
 - include: ssh_keys.yml
+- include: setup_personal_ca.yml
