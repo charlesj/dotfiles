@@ -1,3 +1,6 @@
 ---
 - include: gaming.yml
 - include: cowsay.yml
+- name: Install cmatrix
+  become: true
+  apt: name=cmatrix state=present
