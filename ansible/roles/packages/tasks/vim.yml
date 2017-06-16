@@ -1,7 +1,7 @@
 ---
 - name: Copy vimrc file
-  template:
-    src: ../templates/my.vimrc
+  copy:
+    src: ../files/my.vimrc
     dest: ~/.vimrc
 # will wait until I actually use this to install.
 #- name: Install Powerline

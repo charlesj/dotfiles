@@ -1,5 +1,5 @@
 ---
 - name: Set git config
-  template:
-    src: ../templates/my.gitconfig
+  copy:
+    src: ../files/my.gitconfig
     dest: ~/.gitconfig

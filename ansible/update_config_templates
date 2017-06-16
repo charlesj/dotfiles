@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TEMPLATE_DIRECTORY=roles/packages/templates
+TEMPLATE_DIRECTORY=roles/packages/files
 
 # ATOM
 ATOM_TARGET=my.atom.config
@@ -36,3 +36,11 @@ if [ ! -f "$VIM_PATH" ]; then
     rm "$VIM_PATH"
 fi
 cp ~/.vimrc $VIM_PATH
+
+# tmux
+TMUX_TARGET=my.tmux.config
+TMUX_PATH="$TEMPLATE_DIRECTORY/$TMUX_TARGET"
+if [ ! -f "$TMUX_PATH" ]; then
+    rm "$TMUX_PATH"
+fi
+cp ~/.vimrc $TMUX_PATH

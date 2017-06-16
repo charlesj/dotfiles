@@ -48,6 +48,6 @@
     - zentabs
 
 - name: Copy Atom Config
-  template:
-    src: ../templates/my.atom.config
+  copy:
+    src: ../files/my.atom.config
     dest: ~/.atom/config.cson
