@@ -6,3 +6,10 @@
   lineinfile:
     dest: ~/.profile
     line: export ANSIBLE_COW_SELECTION=random
+
+- name: Install Parrotsay
+  become: true
+  npm:
+    name: parrotsay
+    global: yes
+    state: present
