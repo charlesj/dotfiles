@@ -1,0 +1,15 @@
+---
+- name: Is Pencil Installed
+  stat: path=/usr/local/bin/pencil
+  register: pencil_present
+- name: Download Pencil
+  get_url:
+    url: https://pencil.evolus.vn/dl/V3.0.4/Pencil_3.0.4_amd64.deb
+    dest: /tmp/pencil.deb
+  when: not pencil_present.stat.exists
+- name: Install Pencil
+  command: dpkg -i /tmp/pencil.deb
+  become: true
+  when: not pencil_present.stat.exists
+- name: Clean Up
+  file: path=/tmp/pencil.deb state=absent
