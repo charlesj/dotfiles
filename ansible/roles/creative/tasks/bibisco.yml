@@ -1,0 +1,24 @@
+---
+- name: Is bibisco Installed
+  stat: path=/opt/bibisco
+  register: bibisco_present
+- name: Download bibisco
+  get_url:
+    url: https://github.com/andreafeccomandi/bibisco/releases/download/v1.5.0/bibisco-linux64-v1.5.0.tar.gz
+    dest: /tmp/bibisco.tar.gz
+  when: not bibisco_present.stat.exists
+- name: Install bibisco
+  unarchive:
+    src: /tmp/bibisco.tar.gz
+    dest: /opt/
+    remote_src: True
+  become: true
+  when: not bibisco_present.stat.exists
+- name: Setup useful bin
+  become: true
+  file:
+    src: /opt/bibisco/bibisco
+    dest: /usr/local/bin/bibisco
+    state: link
+- name: Clean Up
+  file: path=/tmp/bibisco.tar.gz state=absent

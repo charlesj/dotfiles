@@ -5,3 +5,4 @@
   with_items:
   - inkscape
   - pinta
+- include: bibisco.yml
