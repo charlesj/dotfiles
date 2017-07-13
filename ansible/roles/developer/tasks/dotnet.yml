@@ -32,7 +32,7 @@
     state: present
 - name: Add dotnet core repository
   apt_repository:
-    repo: "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main"
+    repo: "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main"
     filename: "dotnetdev"
     state: present
     update_cache: yes
@@ -40,5 +40,5 @@
 - name: Install dotnet core
   become: true
   apt:
-    name: dotnet-dev-1.0.0-preview3-004056
+    name: dotnet-dev-1.0.4
     state: present
