@@ -14,7 +14,8 @@
     - xclip
     - libtool
     - libssl-dev
-
+    - libxml2-utils
+    - tidy
 - include: virtualization.yml
 - include: python.yml
 - include: dotnet.yml
