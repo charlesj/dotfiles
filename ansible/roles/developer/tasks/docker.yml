@@ -1,0 +1,39 @@
+---
+- name: Get the current kernel information
+  command: uname -r
+  register: uname_information
+  changed_when: false
+- name: Install docker prerequisites
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - "linux-image-extra-{{ uname_information.stdout }}"
+    - python-pip
+- name: Add docker apt key
+  become: true
+  apt_key:
+    keyserver: hkp://p80.pool.sks-keyservers.net:80
+    id: 58118E89F3A912897C070ADBF76221572C52609D
+    state: present
+- name: Add docker repository
+  apt_repository:
+    repo: "deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main"
+    filename: "docker"
+    state: present
+    update_cache: yes
+  become: true
+- name: Install docker
+  become: true
+  apt:
+    name: docker-engine
+    state: present
+- name: Ensure Docker started and enabled
+  become: yes
+  service:
+    name: docker
+    enabled: yes
+    state: started
