@@ -36,6 +36,7 @@
     - iotop
     - rofi
     - pavucontrol
+    - thunar
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
