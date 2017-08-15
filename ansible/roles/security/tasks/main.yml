@@ -11,3 +11,10 @@
 - include: ssh_keys.yml
 - include: setup_personal_ca.yml
 - include: gpg.yml
+- name: Add make sure key ring is started with i3
+  lineinfile:
+    dest: /home/josh/.zshrc
+    line: "{{ item }}"
+  with_items:
+    - eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+    - export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK

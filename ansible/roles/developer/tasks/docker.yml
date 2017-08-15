@@ -11,7 +11,6 @@
   with_items:
     - apt-transport-https
     - ca-certificates
-    - "linux-image-extra-{{ uname_information.stdout }}"
     - python-pip
 - name: Add docker apt key
   become: true
