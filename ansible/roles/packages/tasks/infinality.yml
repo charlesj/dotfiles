@@ -1,0 +1,12 @@
+---
+- name: Add infinality ppa
+  apt_repository:
+    repo: "ppa:no1wantdthisname/ppa"
+    state: present
+    update_cache: yes
+  become: true
+- name: Install infinality
+  become: true
+  apt:
+    name: fontconfig-infinality
+    state: latest

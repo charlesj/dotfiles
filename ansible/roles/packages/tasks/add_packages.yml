@@ -34,6 +34,8 @@
     - htop
     - iftop
     - iotop
+    - rofi
+    - pavucontrol
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
