@@ -1,4 +1,8 @@
 ---
+- name: Ensure local bin directory
+  file:
+    path: ~/bin
+    state: directory
 - include: apt_setup.yml
 - include: add_packages.yml
 - include: google_chrome.yml

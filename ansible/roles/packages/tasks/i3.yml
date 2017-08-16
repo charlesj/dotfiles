@@ -7,6 +7,10 @@
   with_items:
     - i3
     - i3blocks
+- name: Ensure i3 config directory exists
+  file:
+    path: ~/.config/i3
+    state: directory
 - name: Copy i3 Config
   copy:
     src: ../files/my.i3.config
