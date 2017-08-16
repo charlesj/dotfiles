@@ -15,3 +15,12 @@
   copy:
     src: ../files/my.i3blocks.config
     dest: ~/.config/i3/i3blocks.conf
+- name: Copy lock image
+  copy:
+    src: ../files/lock.png
+    dest: ~/lock.png
+- name: Copy lockscreen generator script
+  copy:
+    src: ../files/generate_lockimg.sh
+    dest: ~/bin/generate_lockimg.sh
+    mode: 0700
