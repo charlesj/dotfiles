@@ -28,3 +28,8 @@
     src: ../files/generate_lockimg.sh
     dest: ~/bin/generate_lockimg.sh
     mode: 0700
+- name: Clone fancy multimonitor lock
+  git:
+    repo: https://github.com/charlesj/i3lock-fancy-multimonitor
+    clone: yes
+    dest: ~/workspace/i3lock-fancy-multimonitor
