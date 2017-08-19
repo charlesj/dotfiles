@@ -29,9 +29,12 @@
   - name: Ensure Terminator setup for 256 color
     lineinfile:
       dest: ~/.zshrc
-      line: export TERM=xterm-256color
+      line: "{{ item }}"
       insertbefore: BOF
       state: present
+    with_items:
+      - export TERM=xterm-256color
+      - alias tmux='tmux -2'
 
   - name: Set oh-my-zsh theme
     lineinfile:
