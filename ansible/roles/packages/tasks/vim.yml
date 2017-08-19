@@ -3,6 +3,17 @@
   copy:
     src: ../files/my.vimrc
     dest: ~/.vimrc
+- name: Install neovim ppa
+  apt_repository:
+    repo: ppa:neovim-ppa/stable
+    state: present
+    update_cache: yes
+  become: true
+- name: Install neovim
+  apt:
+    name: neovim
+    state: present
+  become: true
 # will wait until I actually use this to install.
 #- name: Install Powerline
 #  pip:
