@@ -1,0 +1,25 @@
+---
+- name: Install golang
+  apt:
+    name: golang
+    state: present
+  become: yes
+- name: Create golang workspace
+  file:
+    path: ~/workspace/golang
+    state: directory
+- name: Update environmental variables
+  lineinfile:
+    path: ~/.zshrc
+    line: "{{ item }}"
+    insertafter: EOF
+    state: present
+  with_items:
+    - export GOPATH=~/workspace/golang
+    - export PATH=~/workspace/golang/bin:$PATH
+- name: Add wd endpoint
+  lineinfile:
+    dest: ~/.warprc
+    line: go:~/workspace/golang
+    insertbefore: EOF
+    state: present
