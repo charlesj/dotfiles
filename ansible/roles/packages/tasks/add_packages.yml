@@ -39,6 +39,7 @@
     - thunar
     - scrot
     - lxappearance
+    - cmus
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
