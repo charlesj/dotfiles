@@ -1,11 +1,34 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -e
 
+if [ ! -d ~/workspace ]; then
+  mkdir ~/workspace
+fi
+
+if which git >/dev/null; then
+  sudo apt-get install -y git > /dev/null
+fi
+
+if [ ! -d ~/workspace/dotfiles ]; then
+  echo cloning dotfiles repo.  remember to update origin after installing ssh keys
+  pushd ~/workspace
+    git clone https://github.com/charlesj/dotfiles.git > /dev/null
+  popd
+fi
+
 if which ansible >/dev/null; then
-    echo skipping ansible installation
+  echo skipping ansible installation
 else
-    sudo apt-get install -y software-properties-common
-    sudo apt-add-repository ppa:ansible/ansible -y
-    sudo apt-get update
-    sudo apt-get install -y ansible
+  echo installing ansible
+  sudo apt-get install -y software-properties-common > /dev/null
+  sudo apt-add-repository ppa:ansible/ansible -y > /dev/null
+  sudo apt-get update > /dev/null
+  sudo apt-get install -y ansible > /dev/null
+  echo ansible installed
+fi
+
+if cat ~/workspace/dotfiles/ansible/inventory.ini | grep $(hostname) > /dev/null; then
+  echo Ready to provision $(hostname)
+else
+  echo $(hostname) not in inventory.  Update inventory then run provision
 fi
