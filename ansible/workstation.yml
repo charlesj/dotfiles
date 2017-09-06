@@ -2,4 +2,6 @@
 - hosts: all
   roles:
     - apt_setup
+    - zsh
     - sshkeys
+    - tmux

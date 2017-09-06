@@ -1,0 +1,15 @@
+---
+- name: Install zsh
+  apt:
+    name: zsh
+    state: present
+  become: yes
+- name: Change shell to zsh
+  user: name=josh shell=/usr/bin/zsh
+  become: yes
+- name: Setup oh-my-zsh
+  include: oh_my_zsh.yml
+- name: Setup warp directory
+  include: warp_directory.yml
+- name: Install Powerline fonts
+  include: powerline_fonts.yml

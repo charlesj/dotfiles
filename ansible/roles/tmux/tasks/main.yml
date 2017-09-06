@@ -9,3 +9,7 @@
     src: ../files/my.tmux.config
     dest: ~/.tmux.conf
     backup: no
+- name: Setup tmux to assume colors
+  lineinfile:
+    dest: ~/.zshrc
+    line: alias tmux='tmux -2'

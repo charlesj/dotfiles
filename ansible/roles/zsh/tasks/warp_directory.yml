@@ -1,0 +1,15 @@
+  - name: Look for warp config file, because ansible sucks in this regard
+    stat: path=~/.warprc
+    register: warp_config_file
+  - name: Ensure Warp Directory config is present
+    file: path=~/.warprc state=touch
+    when: warp_config_file.stat.exists == false
+  - name: Add wd endpoints
+    lineinfile:
+      dest: ~/.warprc
+      line: "{{ item }}"
+      insertbefore: EOF
+      state: present
+    with_items:
+      - w:~/workspace
+      - h:~

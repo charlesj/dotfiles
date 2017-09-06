@@ -13,6 +13,5 @@
 - include: sdr.yml
 - include: gitkraken.yml
 - include: slack.yml
-- include: tmux.yml
 - include: infinality.yml
 - include: i3.yml

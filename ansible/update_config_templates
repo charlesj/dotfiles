@@ -39,7 +39,7 @@ cp ~/.vimrc $VIM_PATH
 
 # tmux
 TMUX_TARGET=my.tmux.config
-TMUX_PATH="$TEMPLATE_DIRECTORY/$TMUX_TARGET"
+TMUX_PATH="roles/tmux/files/$TMUX_TARGET"
 if [ -f "$TMUX_PATH" ]; then
     rm "$TMUX_PATH"
 fi
