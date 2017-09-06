@@ -1,10 +1,4 @@
 ---
-- hosts: workstation
+- hosts: all
   roles:
-    - packages
-    - shell
-    - developer
-    - creative
-    - security
-    - cosmetic
-    - fun
+    - sshkeys
