@@ -4,6 +4,7 @@
     - apt_setup
     - sshkeys
     - demonreach_ca
+    - gpg
     - zsh
     - tmux
     - vim

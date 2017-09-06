@@ -1,0 +1,14 @@
+---
+- name: Install gpg
+  apt:
+    name: gnupg
+    state: present
+  become: yes
+- name: Ensure gpg conf directory exists
+  file:
+    path: ~/.gnupg
+    state: directory
+- name: setup gnupg conf
+  copy:
+    src: ../files/gpg.conf
+    dest: ~/.gnupg/gpg.conf
