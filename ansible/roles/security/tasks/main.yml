@@ -8,7 +8,6 @@
 - include: yubikey.yml
 - include: enpass.yml
 - include: keybase.io.yml
-- include: setup_personal_ca.yml
 - include: gpg.yml
 - name: Add make sure key ring is started with i3
   lineinfile:
