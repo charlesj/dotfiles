@@ -31,7 +31,7 @@ cp ~/.config/terminator/config $TERMINATOR_PATH
 
 # VIM
 VIM_TARGET=my.vimrc
-VIM_PATH="$TEMPLATE_DIRECTORY/$VIM_TARGET"
+VIM_PATH="roles/vim/files/$VIM_TARGET"
 if [ -f "$VIM_PATH" ]; then
     rm "$VIM_PATH"
 fi

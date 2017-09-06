@@ -14,8 +14,3 @@
     name: neovim
     state: present
   become: true
-# will wait until I actually use this to install.
-#- name: Install Powerline
-#  pip:
-#    name: powerline-status
-#    state: present
