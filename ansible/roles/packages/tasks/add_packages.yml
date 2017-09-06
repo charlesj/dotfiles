@@ -40,6 +40,11 @@
     - scrot
     - lxappearance
     - cmus
+    - ranger
+    - highlight
+    - atool
+    - mediainfo
+    - mc
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
