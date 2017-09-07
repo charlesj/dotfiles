@@ -8,8 +8,10 @@
     src: ../files/id_rsa
     dest: ~/.ssh/id_rsa
     backup: yes
+    mode: 0600
 - name: Copy ssh public key
   copy:
     src: ../files/id_rsa.pub
     dest: ~/.ssh/id_rsa.pub
     backup: yes
+    mode: 0600

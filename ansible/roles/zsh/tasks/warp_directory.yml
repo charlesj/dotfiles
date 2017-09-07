@@ -13,3 +13,4 @@
     with_items:
       - w:~/workspace
       - h:~
+      - d:~/workspace/dotfiles/ansible
