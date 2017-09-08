@@ -8,3 +8,5 @@
     - zsh
     - tmux
     - vim
+    - xorg
+    - i3wm

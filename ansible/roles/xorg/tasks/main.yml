@@ -1,0 +1,6 @@
+---
+- name: Install xorg
+  apt:
+    name: xorg
+    state: present
+  become: yes
