@@ -7,6 +7,10 @@
 - name: Change shell to zsh
   user: name=josh shell=/usr/bin/zsh
   become: yes
+- name: Ensure user bin directory
+  file:
+    path: ~/bin
+    state: directory
 - name: Setup oh-my-zsh
   include: oh_my_zsh.yml
 - name: Setup warp directory
