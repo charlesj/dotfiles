@@ -24,6 +24,8 @@
     - atool
     - mediainfo
     - mc
+    - cowsay
+    - cmatrix
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
@@ -35,3 +37,20 @@
     src: ../files/mp3
     dest: ~/bin/mp3
     mode: 0700
+- name: Install build packages and tools
+  apt:
+    name: "{{ item }}"
+    state: present
+  become: true
+  with_items:
+    - build-essential
+    - autotools-dev
+    - automake
+    - cmake
+    - libfreetype6-dev
+    - libfontconfig1-dev
+    - xclip
+    - libtool
+    - libssl-dev
+    - libxml2-utils
+    - tidy

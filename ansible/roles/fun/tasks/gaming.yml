@@ -1,6 +1,0 @@
----
-# steam cannot be installed because it asks for a EULA agreement before
-# it will install.
-#- name: Install steam
-#  become: true
-#  apt: name=steam state=present
