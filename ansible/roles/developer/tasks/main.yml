@@ -8,4 +8,3 @@
 - include: elixir.yml
 - include: mancy.yml
 - include: pencil.yml
-- include: go.yml
