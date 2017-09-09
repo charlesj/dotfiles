@@ -1,8 +1,4 @@
 ---
-- name: Get the current kernel information
-  command: uname -r
-  register: uname_information
-  changed_when: false
 - name: Install docker prerequisites
   become: yes
   apt:
