@@ -5,6 +5,7 @@
     - sshkeys
     - demonreach_ca
     - gpg
+    - diskutils
     - zsh
     - tmux
     - vim

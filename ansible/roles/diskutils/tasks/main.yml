@@ -1,0 +1,11 @@
+---
+- name: Install packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+    - exfat-fuse
+    - exfat-utils
+    - nfs-common
+    - nfs-kernel-server
