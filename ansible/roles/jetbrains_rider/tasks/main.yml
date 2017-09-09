@@ -16,7 +16,7 @@
 - name: Decompress Rider
   become: true
   unarchive:
-    src: /opt/rider/rider.tar.gz
+    src: "/opt/rider/rider-{{ rider_version }}.tar.gz"
     dest: /opt/rider
     remote_src: True
   when: not rider_present.stat.exists
