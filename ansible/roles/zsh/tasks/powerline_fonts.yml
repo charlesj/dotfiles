@@ -20,3 +20,21 @@
   shell: fc-cache -vf
   become: yes
   when: fontcache_update|changed
+- name: Clone powerline for tty fonts
+  git:
+    repo: https://github.com/powerline/fonts
+    clone: yes
+    dest: "{{ sources_dir }}/powerline-fonts"
+  become: yes
+- name: Copy terminus tty font
+  copy:
+    src: "{{ sources_dir }}/powerline-fonts/Terminus/PSF/ter-powerline-v16b.psf.gz"
+    dest: /usr/share/consolefonts/ter-powerline-v16b.psf.gz
+    remote_src: yes
+  become: yes
+- name: Setup TTY font
+  copy:
+    src: ../files/console-setup
+    dest: /etc/default/console-setup
+    backup: no
+  become: yes
