@@ -1,8 +1,4 @@
 ---
-- name: Ensure local bin directory
-  file:
-    path: ~/bin
-    state: directory
 - include: add_packages.yml
 - include: google_chrome.yml
 - include: atom.yml
@@ -12,4 +8,3 @@
 - include: remmina.yml
 - include: sdr.yml
 - include: slack.yml
-- include: infinality.yml
