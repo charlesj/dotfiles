@@ -1,4 +1,9 @@
 ---
+- name: Install terminator
+  apt:
+    name: terminator
+    state: present
+  become: yes
 - name: Create Terminator Config Directory
   file:
     path: ~/.config/terminator

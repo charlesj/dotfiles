@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-TEMPLATE_DIRECTORY=roles/packages/files
-
 # ATOM
 ATOM_TARGET=my.atom.config
 ATOM_PATH="roles/atom/files/$ATOM_TARGET"
@@ -22,7 +20,7 @@ cp ~/.gitconfig $GIT_PATH
 
 # TERMINATOR
 TERMINATOR_TARGET=my.terminator.config
-TERMINATOR_PATH="$TEMPLATE_DIRECTORY/$TERMINATOR_TARGET"
+TERMINATOR_PATH="roles/terminator/files/$TERMINATOR_TARGET"
 if [ -f "$TERMINATOR_PATH" ]; then
     rm "$TERMINATOR_PATH"
 fi

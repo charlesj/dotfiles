@@ -22,6 +22,7 @@
     - xorg
     - i3wm
     - infinality
+    - terminator
     - google_chrome
     - atom
     - tex
