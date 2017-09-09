@@ -4,12 +4,3 @@
 - name: Install cmatrix
   become: true
   apt: name=cmatrix state=present
-- name: Install xkcd-dl
-  become: true
-  pip:
-    name: xkcd-dl
-    state: present
-  register: installed_xkcddl
-- name: Update xkcd-dl database
-  shell: xkcd-dl --update-db
-  when: installed_xkcddl | changed
