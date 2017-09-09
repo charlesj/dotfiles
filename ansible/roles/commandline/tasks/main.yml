@@ -26,6 +26,7 @@
     - mc
     - cowsay
     - cmatrix
+    - gconf2
 - name: Install pip packages
   become: true
   pip: name={{ item }} state=present
