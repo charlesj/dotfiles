@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Mancy
-Comment=Mancy javascript REPL
-Exec=/usr/bin/mancy
-Icon=/home/josh/.config/mancy.png
-Terminal=false
-Type=Application
-StartupNotify=true

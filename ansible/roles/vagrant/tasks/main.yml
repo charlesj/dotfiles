@@ -1,0 +1,16 @@
+---
+- name: See if vagrant is installed
+  stat:
+    path: /usr/bin/vagrant
+  register: vagrant_installed
+- name: Download vagrant deb package
+  get_url:
+    url: https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb
+    dest: /tmp/vagrant.deb
+  when: not vagrant_installed.stat.exists
+- name: Install vagrant
+  command: dpkg -i /tmp/vagrant.deb
+  become: true
+  when: not vagrant_installed.stat.exists
+- name: Clean up downloaded vagrant package
+  file: path=/tmp/vagrant.deb state=absent
