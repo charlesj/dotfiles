@@ -1,0 +1,13 @@
+---
+- include: pencil.yml
+- name: Install mancy
+  become: yes
+  npm:
+    name: mancy
+    state: present
+    global: yes
+- name: Install pgadmin
+  apt:
+    name: pgadmin3
+    state: present
+  become: true

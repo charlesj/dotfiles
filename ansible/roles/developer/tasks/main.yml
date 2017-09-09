@@ -1,5 +1,2 @@
 ---
 - include: virtualization.yml
-- include: databases.yml
-- include: mancy.yml
-- include: pencil.yml
