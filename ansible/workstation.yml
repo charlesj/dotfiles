@@ -10,6 +10,7 @@
     - tmux
     - vim
     - commandline
+    - git
     - docker
     - dotnet
     - golang

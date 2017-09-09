@@ -10,4 +10,9 @@
   apt:
     name: pgadmin3
     state: present
-  become: true
+  become: yes
+- name: Install gitk
+  apt:
+    name: gitk
+    state: present
+  become: yes

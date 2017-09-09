@@ -4,5 +4,4 @@
 - include: atom.yml
 - include: vim.yml
 - include: terminator.yml
-- include: git.yml
 - include: slack.yml
