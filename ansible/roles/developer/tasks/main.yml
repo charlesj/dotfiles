@@ -2,7 +2,6 @@
 - include: virtualization.yml
 - include: dotnet.yml
 - include: nodejs.yml
-- include: tex.yml
 - include: crystal.yml
 - include: databases.yml
 - include: elixir.yml
