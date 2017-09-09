@@ -4,6 +4,5 @@
 - include: nodejs.yml
 - include: crystal.yml
 - include: databases.yml
-- include: elixir.yml
 - include: mancy.yml
 - include: pencil.yml

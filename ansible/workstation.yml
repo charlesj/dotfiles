@@ -14,6 +14,7 @@
     - dotnet
     - golang
     - python
+    - elixir
     - xorg
     - i3wm
     - tex
