@@ -4,7 +4,7 @@ TEMPLATE_DIRECTORY=roles/packages/files
 
 # ATOM
 ATOM_TARGET=my.atom.config
-ATOM_PATH="$TEMPLATE_DIRECTORY/$ATOM_TARGET"
+ATOM_PATH="roles/atom/files/$ATOM_TARGET"
 if [ -f "$ATOM_PATH" ]; then
     rm "$ATOM_PATH"
 fi
@@ -13,7 +13,7 @@ cp ~/.atom/config.cson $ATOM_PATH
 
 # GIT
 GIT_TARGET=my.gitconfig
-GIT_PATH="$TEMPLATE_DIRECTORY/$GIT_TARGET"
+GIT_PATH="roles/git/files/$GIT_TARGET"
 if [ -f "$GIT_PATH" ]; then
     rm "$GIT_PATH"
 fi
@@ -47,7 +47,7 @@ cp ~/.tmux.conf $TMUX_PATH
 
 # i3
 I3_TARGET=my.i3.config
-I3_PATH="$TEMPLATE_DIRECTORY/$I3_TARGET"
+I3_PATH="roles/i3wm/files/$I3_TARGET"
 if [ -f "$I3_PATH" ]; then
     rm "$I3_PATH"
 fi
@@ -55,7 +55,7 @@ cp ~/.config/i3/config $I3_PATH
 
 # i3
 I3BLOCKS_TARGET=my.i3blocks.config
-I3BLOCKS_PATH="$TEMPLATE_DIRECTORY/$I3BLOCKS_TARGET"
+I3BLOCKS_PATH="roles/i3wm/files/$I3BLOCKS_TARGET"
 if [ -f "$I3BLOCKS_PATH" ]; then
     rm "$I3BLOCKS_PATH"
 fi
