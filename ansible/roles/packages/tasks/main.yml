@@ -11,6 +11,5 @@
 - include: git.yml
 - include: remmina.yml
 - include: sdr.yml
-- include: gitkraken.yml
 - include: slack.yml
 - include: infinality.yml
