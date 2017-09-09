@@ -5,47 +5,22 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - httpie
-    - vim
-    - openvpn
-    - python-pip
-    - ntp
     - terminator
-    - curl
     - unity-tweak-tool
     - handbrake
     - caffeine
-    - mpv
     - gnome-tweak-tool
-    - exfat-fuse
-    - exfat-utils
     - synaptic
     - arandr
     - dconf-editor
     - bleachbit
-    - jq
-    - cloc
+    - exfat-fuse
+    - exfat-utils
     - calibre
     - nfs-common
     - nfs-kernel-server
-    - w3m
-    - lynx
-    - htop
-    - iftop
-    - iotop
+
     - pavucontrol
     - thunar
     - scrot
     - lxappearance
-    - cmus
-    - ranger
-    - highlight
-    - atool
-    - mediainfo
-    - mc
-- name: Install pip packages
-  become: true
-  pip: name={{ item }} state=present
-  with_items:
-    - youtube-dl
-    - cryptography

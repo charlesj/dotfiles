@@ -1,0 +1,37 @@
+---
+- name: Install Common tools
+  apt:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+    - httpie
+    - openvpn
+    - python-pip
+    - ntp
+    - curl
+    - mpv
+    - jq
+    - cloc
+    - w3m
+    - lynx
+    - htop
+    - iftop
+    - iotop
+    - cmus
+    - ranger
+    - highlight
+    - atool
+    - mediainfo
+    - mc
+- name: Install pip packages
+  become: true
+  pip: name={{ item }} state=present
+  with_items:
+    - youtube-dl
+    - cryptography
+- name: Setup mp3 shortcut
+  copy:
+    src: ../files/mp3
+    dest: ~/bin/mp3
+    mode: 0700
