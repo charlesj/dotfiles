@@ -19,6 +19,7 @@
     - nodejs
     - parrotsay
     - crystal
+    - gnome_keyring
     - xorg
     - i3wm
     - infinality

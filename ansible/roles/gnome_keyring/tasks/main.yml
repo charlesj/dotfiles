@@ -1,0 +1,9 @@
+---
+- name: Install packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+    - gnome-keyring
+    - libsecret-tools
