@@ -4,20 +4,3 @@
 #- name: Install steam
 #  become: true
 #  apt: name=steam state=present
-- name: Install dosbox
-  apt:
-    name: dosbox
-    state: present
-  become: yes
-- name: Create home dosgames directory
-  file:
-    path: ~/games/dos
-    state: directory
-- name: Create zork directory
-  file:
-    path: ~/games/dos/zork
-    state: directory
-- name: Extract Zork Zero to directory
-  unarchive:
-    src: ../files/zork-zero.zip
-    dest: ~/games/dos/zork
