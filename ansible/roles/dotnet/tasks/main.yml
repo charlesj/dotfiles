@@ -1,0 +1,26 @@
+---
+- name: Add repository for libicu52
+  become: true
+  apt_repository:
+    repo: "deb http://security.ubuntu.com/ubuntu trusty-security main"
+    filename: "dotnetlegacy"
+    state: present
+    update_cache: yes
+- name: Add dotnet core key
+  become: true
+  apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 417A0893
+    state: present
+- name: Add dotnet core repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main"
+    filename: "dotnetdev"
+    state: present
+    update_cache: yes
+  become: true
+- name: Install dotnet core
+  become: true
+  apt:
+    name: dotnet-dev-1.0.4
+    state: present
