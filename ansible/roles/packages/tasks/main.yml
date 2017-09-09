@@ -5,6 +5,5 @@
 - include: vim.yml
 - include: terminator.yml
 - include: git.yml
-- include: remmina.yml
 - include: sdr.yml
 - include: slack.yml

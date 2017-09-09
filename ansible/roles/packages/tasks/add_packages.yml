@@ -6,13 +6,8 @@
     state: present
   with_items:
     - terminator
-    - unity-tweak-tool
     - handbrake
-    - caffeine
-    - gnome-tweak-tool
-    - synaptic
     - arandr
-    - dconf-editor
     - bleachbit
     - calibre
     - pavucontrol
