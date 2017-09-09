@@ -9,7 +9,7 @@
   register: slack_present
 - name: Download slack installation package
   get_url:
-    url: https://downloads.slack-edge.com/linux_releases/slack-desktop-2.5.2-amd64.deb
+    url: https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.1-amd64.deb
     dest: /tmp/slack.deb
   when: not slack_present.stat.exists
 - name: Install slack
