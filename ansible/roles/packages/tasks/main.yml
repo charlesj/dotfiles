@@ -1,6 +1,4 @@
 ---
 - include: add_packages.yml
 - include: atom.yml
-- include: vim.yml
 - include: terminator.yml
-- include: slack.yml
