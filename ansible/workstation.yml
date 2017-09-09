@@ -32,6 +32,10 @@
     - jetbrains_rider
     - remmina
     - visualdevtools
+    - disk_encryption
+    - keybase.io
+    - enpass
+    - yubikey
     - virtualbox
     - vagrant
     - graphics_apps
