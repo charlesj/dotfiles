@@ -6,7 +6,7 @@ expected_kernel: 4.10.17-041017-generic
 kernel_files:
   - url: http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-headers-4.10.17-041017_4.10.17-041017.201705201051_all.deb
     name: linux-headers-4.10.17-041017_4.10.17-041017.201709070418_all.deb
-  - url: http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.12.11/linux-headers-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb
-    name: linux-headers-4.10.17-041017-generic_4.10.17-041017.201709070418_amd64.deb
-  - url: http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.12.11/linux-image-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb
-    name: linux-image-4.10.17-041017-generic_4.10.17-041017.201709070418_amd64.deb
+  - url: http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-headers-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb
+    name: linux-headers-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb
+  - url: http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.10.17/linux-image-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb
+    name: linux-image-4.10.17-041017-generic_4.10.17-041017.201705201051_amd64.deb
