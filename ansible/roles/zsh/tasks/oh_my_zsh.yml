@@ -52,10 +52,10 @@
     dest: ~/.zshrc
     line: export PATH=~/bin:$PATH
 - name: alias gpg to gpg2
-  lineinefile:
+  lineinfile:
     dest: ~/.zshrc
     line: alias gpg=gpg2
 - name: make sure gpg tty is defined
-  lineinefile:
+  lineinfile:
     dest: ~/.zshrc
     line: export GPG_TTY=$(tty)
