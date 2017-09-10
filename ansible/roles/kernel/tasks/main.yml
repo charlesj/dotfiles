@@ -1,0 +1,21 @@
+---
+- name: Register current kernel
+  shell: uname -r
+  register: current_kernel
+  changed_when: false
+- name: Download new kernel
+  get_url:
+    url: "{{ item.url }}"
+    dest: "/tmp/{{ item.name }}"
+  when:  current_kernel.stdout != expected_kernel
+  with_items: "{{ kernel_files }}"
+- name: Install new kernel
+  command: "dpkg -i /tmp/{{ item.name }}"
+  become: yes
+  when:  current_kernel.stdout != expected_kernel
+  register: kernel_installed
+  with_items: "{{ kernel_files }}"
+- name: Update grub
+  command: update-grub
+  become: yes
+  when: kernel_installed | changed
