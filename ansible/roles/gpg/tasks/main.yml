@@ -17,6 +17,11 @@
     src: ../files/gpg.conf
     dest: ~/.gnupg/gpg.conf
     mode: 0600
+- name: setup gpg agent conf
+  copy:
+    src: ../files/gpg-agent.conf
+    dest: ~/.gnupg/gpg-agent.conf
+    mode: 0600
 - name: See if keys are present
   shell: gpg --fast-list-mode --list-keys 2C84D450
   failed_when: false

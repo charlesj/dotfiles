@@ -51,3 +51,7 @@
   lineinfile:
     dest: ~/.zshrc
     line: export PATH=~/bin:$PATH
+- name: alias gpg to gpg2
+  lineinefile:
+    dest: ~/.zshrc
+    line: alias gpg=gpg2
