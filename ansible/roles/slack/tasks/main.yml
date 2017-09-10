@@ -1,9 +1,12 @@
 ---
 - name: Install slack dependencies
   apt:
-    name: gvfs-bin
+    name: "{{ item }}"
     state: present
   become: yes
+  with_items:
+    - gvfs-bin
+    - gir1.2-gnomekeyring-1.0
 - name: Is slack Installed
   stat: path=/usr/bin/slack
   register: slack_present
