@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -e
+
+linux_headers_url='http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.12.13/linux-headers-4.12.13-041213_4.12.13-041213.201709132217_all.deb'
+linux_headers_generic_url='http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.12.13/linux-headers-4.12.13-041213-generic_4.12.13-041213.201709132217_amd64.deb'
+linux_image_generic_url='http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.12.13/linux-image-4.12.13-041213-generic_4.12.13-041213.201709132217_amd64.deb'
+
+
+if [ -d /tmp/kernel ]; then
+  rm -rf /tmp/kernel
+fi
+
+mkdir /tmp/kernel
+
+pushd /tmp/kernel
+  cat > CHECKSUMS << EOF
+b012a9b86bb9741d55f7e28ebbbc10269bc88404  linux-headers-4.12.13-041213_4.12.13-041213.201709132217_all.deb
+1a9159174cec5e987a859579ae69d74529f2b7d4  linux-headers-4.12.13-041213-generic_4.12.13-041213.201709132217_amd64.deb
+08908888763dd6ac685608e92ab961e691f71b9c  linux-image-4.12.13-041213-generic_4.12.13-041213.201709132217_amd64.deb
+EOF
+
+  wget $linux_headers_url
+  wget $linux_headers_generic_url
+  wget $linux_image_generic_url
+
+  shasum -c CHECKSUMS
+  dpkg -i *.deb
+popd
+
+rm -rf /tmp/kernel

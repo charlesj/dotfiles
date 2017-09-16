@@ -2,7 +2,6 @@
 - hosts: all
   roles:
     - apt_setup
-    - kernel
     - sshkeys
     - demonreach_ca
     - gpg
