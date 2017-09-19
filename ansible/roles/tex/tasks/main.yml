@@ -2,10 +2,8 @@
 - name: Install texlive
   become: true
   apt:
-    name: texlive-full
+    name: "{{ item }}"
     state: latest
-- name: Install texmaker
-  become: true
-  apt:
-    name: texmaker
-    state: latest
+  with_items:
+    - texmaker
+    - texlive-full
