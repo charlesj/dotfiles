@@ -12,10 +12,19 @@
   file:
     path: ~/.config/i3
     state: directory
-- name: Copy i3 Config
-  copy:
-    src: ../files/my.i3.config
+- name: See if config file exists
+  stat: path=~/.config/i3/config
+  register: i3config_present
+  changed_when: false
+- name: Ensure config files exists
+  file:
+    path: ~/.config/i3/config
+    state: touch
+  when: not i3config_present.stat.exists
+- name: Add base config
+  blockinfile:
     dest: ~/.config/i3/config
+    block: "{{ lookup('file', '../files/my.i3.config') }}"
 - name: Copy i3blocks Config
   copy:
     src: ../files/my.i3blocks.config
