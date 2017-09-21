@@ -26,7 +26,8 @@
     - terminator
     - google_chrome
     - atom
-    - tex
+    - role: tex
+      when: install_tex
     - zork
     - xkcd
     - graphical_utilities
@@ -43,5 +44,7 @@
     - bibisco
     - software_defined_radio
     - slack
-    - makemkv
-    - private_internet_access
+    - role: makemkv
+      when: install_makemkv
+    - role: private_internet_access
+      when: install_pia

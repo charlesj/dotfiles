@@ -7,4 +7,3 @@
   with_items:
     - texmaker
     - texlive-full
-  when: install_tex

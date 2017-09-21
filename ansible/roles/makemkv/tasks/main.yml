@@ -6,7 +6,6 @@
     state: present
     update_cache: yes
   become: yes
-  when: install_makemkv
 - name: Install Packages
   apt:
     name: "{{ item }}"
@@ -15,4 +14,3 @@
   with_items:
     - makemkv-oss
     - makemkv-bin
-  when: install_makemkv
