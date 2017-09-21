@@ -1,0 +1,31 @@
+---
+- name: Create working directory
+  file:
+    path: "{{ sources_dir }}/privateinternetaccess"
+    state: directory
+  become: yes
+  when: install_pia
+- name: Download installation tar
+  get_url:
+    url: https://installers.privateinternetaccess.com/download/pia-v72-installer-linux.tar.gz
+    dest: "{{ sources_dir }}/privateinternetaccess/pia-v72-installer-linux.tar.gz"
+  become: yes
+  when: install_pia
+- name: Decompress tar
+  unarchive:
+    src: "{{ sources_dir }}/privateinternetaccess/pia-v72-installer-linux.tar.gz"
+    dest: "{{ sources_dir }}/privateinternetaccess"
+    creates: "{{ sources_dir }}/privateinternetaccess/pia-v72-installer-linux.sh"
+  become: yes
+  register: decompressed_pia_installer
+  when: install_pia
+- name: Run installer
+  shell: "bash {{ sources_dir }}/privateinternetaccess/pia-v72-installer-linux.sh"
+  become: yes
+  when: decompressed_pia_installer | changed
+- name: Enable PiA at i3 start
+  lineinfile:
+    line: exec --no-startup-id /home/josh/pia.sh
+    path: ~/.config/i3/config
+    state: present
+    insertafter: EOF

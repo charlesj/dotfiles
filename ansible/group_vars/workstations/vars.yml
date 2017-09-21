@@ -1,3 +1,4 @@
 sources_dir: /usr/src
 rider_version: 2017.1
 install_tex: true
+install_pia: true
