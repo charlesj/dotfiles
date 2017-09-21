@@ -33,3 +33,11 @@
   copy:
     src: ../files/my.xinitrc
     dest: ~/.xinitrc
+- name: Ensure dunst config directory exists
+  file:
+    path: ~/.config/dunst
+    state: directory
+- name: Copy dunst config
+  copy:
+    src: ../files/my.dunst.config
+    dest: ~/.config/dunst/dunstrc
