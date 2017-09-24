@@ -1,0 +1,9 @@
+---
+- name: Install utils
+  apt:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+    - network-manager-gnome
+    - wicd-curses

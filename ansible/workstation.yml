@@ -35,6 +35,7 @@
     - remmina
     - visualdevtools
     - disk_encryption
+    - network_ui
     - keybase.io
     - enpass
     - yubikey
