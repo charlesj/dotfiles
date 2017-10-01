@@ -1,0 +1,19 @@
+---
+- name: Install packages
+  apt:
+    name: openssh-server
+    state: present
+  become: yes
+- name: Ensure service is enabled and started
+  service:
+    name: ssh
+    enabled: yes
+    state: started
+  become: yes
+- name: Copy configuration
+  copy:
+    src: ../files/ssh.server.config
+    dest: /etc/ssh/sshd_config
+    mode: 0644
+  become: yes
+  notify: restart sshd
