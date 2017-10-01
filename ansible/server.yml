@@ -1,0 +1,12 @@
+---
+- hosts: servers
+  roles:
+    - apt_setup
+    - sshkeys
+    - demonreach_ca
+    - diskutils
+    - zsh
+    - tmux
+    - vim
+    - commandline
+    - docker

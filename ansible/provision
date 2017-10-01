@@ -2,12 +2,17 @@
 import argparse
 import subprocess
 import socket
+import sys
 
 hostname = socket.gethostname()
 
 parser = argparse.ArgumentParser(description='My Ansible Provisioner')
 
 playbook_file = 'workstation.yml'
+
+if len(sys.argv) > 1 and sys.argv[1] == 'server':
+    playbook_file = 'server.yml'
+
 command = 'ansible-playbook -l ' + hostname + ' ' + playbook_file
 retcode = subprocess.call(command, shell = True)
 exit(retcode)
