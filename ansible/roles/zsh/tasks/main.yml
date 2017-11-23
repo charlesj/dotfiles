@@ -14,8 +14,8 @@
   with_items:
     - ~/bin
 - name: Setup oh-my-zsh
-  include: oh_my_zsh.yml
+  import_tasks: oh_my_zsh.yml
 - name: Setup warp directory
-  include: warp_directory.yml
+  import_tasks: warp_directory.yml
 - name: Install Powerline fonts
-  include: powerline_fonts.yml
+  import_tasks: powerline_fonts.yml

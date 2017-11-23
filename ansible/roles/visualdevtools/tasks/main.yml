@@ -1,5 +1,5 @@
 ---
-- include: pencil.yml
+- import_tasks: pencil.yml
 - name: Install mancy
   become: yes
   npm:
