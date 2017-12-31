@@ -45,7 +45,6 @@
     - todo-show
     - trailing-spaces
     - wordcount
-    - zentabs
 - name: Copy Atom Config
   copy:
     src: ../files/my.atom.config
