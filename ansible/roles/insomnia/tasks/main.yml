@@ -1,0 +1,17 @@
+---
+- name: Check if insomnia is installed
+  command: dpkg-query -W insomnia
+  register: insomnia_install_check
+  failed_when: insomnia_install_check.rc > 1
+  changed_when: insomnia_install_check.rc == 1
+- name: Download insomnia
+  get_url:
+    url: https://builds.insomnia.rest/downloads/ubuntu/latest
+    dest: /tmp/insomnia.deb
+  when: insomnia_install_check.rc == 1
+- name: Install insomnia
+  command: dpkg -i /tmp/insomnia.deb
+  become: true
+  when: insomnia_install_check.rc == 1
+- name: Clean up insomnia deb file
+  file: path=/tmp/insomnia.deb state=absent

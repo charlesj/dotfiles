@@ -32,6 +32,8 @@
     - xkcd
     - graphical_utilities
     - jetbrains_rider
+    - robo3t
+    - insomnia
     - remmina
     - visualdevtools
     - disk_encryption
@@ -45,6 +47,7 @@
     - bibisco
     - software_defined_radio
     - slack
+    - OpenBroadcasterSystem
     - role: makemkv
       when: install_makemkv
     - role: private_internet_access

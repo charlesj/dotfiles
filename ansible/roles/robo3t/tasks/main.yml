@@ -1,0 +1,24 @@
+---
+- name: Is robo3t Installed
+  stat: path=/opt/{{ robo3t_version }}
+  register: robo3t_present
+- name: Download robo3t
+  get_url:
+    url: "https://download.robomongo.org/1.1.1/linux/{{ robo3t_version }}.tar.gz"
+    dest: /tmp/robo3t.tar.gz
+  when: not robo3t_present.stat.exists
+- name: Install robo3t
+  unarchive:
+    src: /tmp/robo3t.tar.gz
+    dest: /opt/
+    remote_src: True
+  become: true
+  when: not robo3t_present.stat.exists
+- name: Setup useful bin
+  become: true
+  file:
+    src: "/opt/{{ robo3t_version }}/bin/robo3t"
+    dest: /usr/local/bin/robo3t
+    state: link
+- name: Clean Up
+  file: path=/tmp/robo3t.tar.gz state=absent
