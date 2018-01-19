@@ -30,7 +30,6 @@
     - language-babel
     - language-docker
     - language-gitignore
-    - language-javascript
     - language-sass
     - last-cursor-position
     - lines
