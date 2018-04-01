@@ -5,7 +5,7 @@
   register: vagrant_installed
 - name: Download vagrant deb package
   get_url:
-    url: https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb
+    url: https://releases.hashicorp.com/vagrant/2.0.3/vagrant_2.0.3_x86_64.deb
     dest: /tmp/vagrant.deb
   when: not vagrant_installed.stat.exists
 - name: Install vagrant
