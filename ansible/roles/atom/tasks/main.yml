@@ -22,7 +22,6 @@
     - chester-atom-syntax
     - editor-stats
     - file-icons
-    - git-diff
     - git-log
     - goto-definition
     - highlight-selected
@@ -30,7 +29,6 @@
     - language-babel
     - language-docker
     - language-gitignore
-    - language-sass
     - last-cursor-position
     - lines
     - linter
