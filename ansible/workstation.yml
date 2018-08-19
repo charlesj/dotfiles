@@ -26,7 +26,6 @@
     - infinality
     - terminator
     - google_chrome
-    - atom
     - role: tex
       when: install_tex
     - zork
