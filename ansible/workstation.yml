@@ -21,6 +21,7 @@
     - crystal
     - gnome_keyring
     - xorg
+    - firacode
     - i3wm
     - infinality
     - terminator

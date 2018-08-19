@@ -1,0 +1,13 @@
+- name: Ensure user fonts directory created
+  file:
+    path: ~/.fonts
+    state: directory
+- name: Download otf
+  get_url:
+    url: https://github.com/tonsky/FiraCode/blob/master/distr/otf/FiraCode-Regular.otf?raw=true
+    dest: ~/.fonts/FiraCode-Regular.otf
+    mode: 0440
+  register: firacode_download
+- name: Update font cache for firacode
+  shell: fc-cache -vf
+  when: firacode_download is changed
