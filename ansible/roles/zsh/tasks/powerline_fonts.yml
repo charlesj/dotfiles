@@ -19,7 +19,7 @@
 - name: Update fontconfig cache
   shell: fc-cache -vf
   become: yes
-  when: fontcache_update|changed
+  when: fontcache_update is changed
 - name: Clone powerline for tty fonts
   git:
     repo: https://github.com/powerline/fonts

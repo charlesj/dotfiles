@@ -16,4 +16,4 @@
 - name: Update certs
   command: update-ca-certificates
   become: true
-  when: certificate_copied | changed
+  when: certificate_copied is changed

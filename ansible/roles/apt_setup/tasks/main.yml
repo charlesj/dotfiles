@@ -17,4 +17,4 @@
   become: true
   apt:
     update_cache: true
-  when: multiverse_installed | changed
+  when: multiverse_installed is changed

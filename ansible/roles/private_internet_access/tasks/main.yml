@@ -19,7 +19,7 @@
 - name: Run installer
   shell: "bash {{ sources_dir }}/privateinternetaccess/pia-v72-installer-linux.sh"
   become: yes
-  when: decompressed_pia_installer | changed
+  when: decompressed_pia_installer is changed
 - name: Enable PiA at i3 start
   lineinfile:
     line: exec --no-startup-id /home/josh/pia.sh

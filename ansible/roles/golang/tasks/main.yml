@@ -21,5 +21,4 @@
   lineinfile:
     dest: ~/.warprc
     line: go:~/workspace/golang
-    insertbefore: EOF
     state: present
