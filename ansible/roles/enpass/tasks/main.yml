@@ -18,7 +18,7 @@
     state: present
 - name: Enable Enpass at i3 start
   lineinfile:
-    line: exec --no-startup-id i3-msg 'exec /opt/Enpass/bin/runenpass.sh'; sleep 0.5s; i3-msg '[class="Enpass"] kill'
+    line: exec --no-startup-id i3-msg 'exec /opt/enpass/Enpass'; sleep 0.5s; i3-msg '[class="Enpass"] kill'
     path: ~/.config/i3/config
     state: present
     insertafter: EOF
