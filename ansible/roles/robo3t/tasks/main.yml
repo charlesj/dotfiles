@@ -4,7 +4,7 @@
   register: robo3t_present
 - name: Download robo3t
   get_url:
-    url: "https://download.robomongo.org/1.1.1/linux/{{ robo3t_version }}.tar.gz"
+    url: "https://download.robomongo.org/1.2.1/linux/{{ robo3t_version }}.tar.gz"
     dest: /tmp/robo3t.tar.gz
   when: not robo3t_present.stat.exists
 - name: Install robo3t
