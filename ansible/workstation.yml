@@ -4,49 +4,49 @@
     - apt_setup
     - sshkeys
     - demonreach_ca
-    - gpg
+    #- gpg
     - diskutils
     - zsh
     - tmux
     - vim
     - commandline
     - git
-    - docker
-    - dotnet
-    - golang
-    - python
+    #- docker
+    #- dotnet
+    #- golang
+    #- python
     # - elixir
-    - nodejs
-    - parrotsay
-    - crystal
-    - gnome_keyring
+    #- nodejs
+    #- parrotsay
+    #- crystal
+    #- gnome_keyring
     - xorg
-    - firacode
+    #- firacode
     - i3wm
-    - infinality
-    - terminator
+    #- infinality
+    #- terminator
     - google_chrome
     - role: tex
       when: install_tex
     - zork
-    - xkcd
+    #- xkcd
     - graphical_utilities
-    - jetbrains_rider
-    - robo3t
-    - insomnia
-    - remmina
-    - visualdevtools
+    #- jetbrains_rider
+    #- robo3t
+    #- insomnia
+    #- remmina
+    #- visualdevtools
     - disk_encryption
     - network_ui
     - keybase.io
     - enpass
-    - yubikey
-    - virtualbox
-    - vagrant
+    #- yubikey
+    #- virtualbox
+    #- vagrant
     - graphics_apps
-    - bibisco
-    - software_defined_radio
-    - slack
+    #- bibisco
+    #- software_defined_radio
+    #- slack
     - OpenBroadcasterSystem
     - role: makemkv
       when: install_makemkv

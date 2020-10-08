@@ -6,4 +6,4 @@
   become: yes
   with_items:
     - network-manager-gnome
-    - wicd-curses
+  #z  - wicd-curses

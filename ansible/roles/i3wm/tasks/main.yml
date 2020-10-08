@@ -29,10 +29,10 @@
   copy:
     src: ../files/my.i3blocks.config
     dest: ~/.config/i3/i3blocks.conf
-- name: Copy xinitrc
-  copy:
-    src: ../files/my.xinitrc
-    dest: ~/.xinitrc
+#- name: Copy xinitrc
+#  copy:
+#    src: ../files/my.xinitrc
+#    dest: ~/.xinitrc
 - name: Ensure dunst config directory exists
   file:
     path: ~/.config/dunst

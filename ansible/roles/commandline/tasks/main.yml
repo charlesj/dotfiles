@@ -7,7 +7,7 @@
   with_items:
     - httpie
     - openvpn
-    - python-pip
+    #- python-pip
     - ntp
     - curl
     - mpv
@@ -27,12 +27,11 @@
     - cowsay
     - cmatrix
     - gconf2
-- name: Install pip packages
-  become: true
-  pip: name={{ item }} state=present
-  with_items:
-    - youtube-dl
-    - cryptography
+# - name: Install pip packages
+#   become: true
+#   pip: name={{ item }} state=present
+#   with_items:
+#     - cryptography
 - name: Setup mp3 shortcut
   copy:
     src: ../files/mp3
